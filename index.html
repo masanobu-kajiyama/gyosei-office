@@ -499,6 +499,113 @@
       max-width: 860px;
     }
 
+    .daily-info-bar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 20px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(108,141,43,0.16);
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(56, 44, 16, 0.06);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .daily-info-main {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .daily-info-date {
+      font-weight: 700;
+      color: var(--green-deep);
+      letter-spacing: .02em;
+    }
+
+    .daily-info-time {
+      font-weight: 700;
+      color: #42531b;
+      white-space: nowrap;
+    }
+
+    .daily-info-weekday,
+    .daily-info-rokuyo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .daily-info-weekday {
+      background: rgba(108,141,43,0.12);
+      color: var(--green-deep);
+      border: 1px solid rgba(108,141,43,0.14);
+    }
+
+    .daily-info-weekday.sun {
+      background: rgba(201, 72, 72, 0.12);
+      color: #a23131;
+      border-color: rgba(201, 72, 72, 0.16);
+    }
+
+    .daily-info-weekday.sat {
+      background: rgba(67, 111, 196, 0.12);
+      color: #2d58b6;
+      border-color: rgba(67, 111, 196, 0.16);
+    }
+
+    .daily-info-rokuyo {
+      background: #fff8e6;
+      color: #7a5a12;
+      border: 1px solid #ecdcb2;
+    }
+
+    .daily-info-sep {
+      width: 1px;
+      height: 18px;
+      background: rgba(108,141,43,0.18);
+    }
+
+    .daily-info-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .daily-info-link a {
+      color: var(--green-deep);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(83,110,31,.4);
+    }
+
+    .daily-info-link a:hover {
+      text-decoration: none;
+      border-bottom-style: solid;
+    }
+
+    .today-word-box {
+      margin-bottom: 26px;
+    }
+
+    .today-word-box p:last-child {
+      margin-bottom: 0;
+    }
+
     @media (max-width: 980px) {
       .hero,
       .news-grid,
@@ -529,6 +636,16 @@
         grid-template-columns: 1fr;
       }
       .table th { width: 110px; }
+
+      .daily-info-bar {
+        border-radius: 18px;
+        padding: 10px 14px;
+        gap: 8px;
+      }
+
+      .daily-info-sep {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -566,11 +683,25 @@
 
     <main>
       <section class="page active" id="home" data-page="home">
+        <div class="daily-info-bar" aria-label="本日の日付と時刻と六曜">
+          <div class="daily-info-main">
+            <span class="daily-info-date" id="dailyInfoDate">2026年5月12日</span>
+            <span class="daily-info-weekday" id="dailyInfoWeekday">火曜日</span>
+            <span class="daily-info-time" id="dailyInfoTime">8時44分</span>
+            <span class="daily-info-rokuyo" id="dailyInfoRokuyo">大安</span>
+          </div>
+          <span class="daily-info-sep" aria-hidden="true"></span>
+          <div class="daily-info-link">
+            <span aria-hidden="true">📖</span>
+            <a href="#today-word" id="todayWordJump">今日の言葉</a>
+          </div>
+        </div>
+
         <div class="hero">
           <div class="hero-copy card">
             <div class="badge">新HPへの移行について</div>
             <h1>フードロスゼロ社会の実現と、農林水産業の現場課題の解決へ</h1>
-            <p class="lead">法律・行政手続き支援、食品残さの再生利活用、農林水産業の経営改善、カーボンニュートラル推進まで、現場に寄り添う伴走支援を誠実に実施します。</p>
+            <p class="lead">法律・行政手続き支援、食品残さの再生利活用、農林水産業の経営改善、サーキュラーエコノミーからカーボンニュートラル、そしてネイチャーポジティブ推進まで、現場に寄り添う伴走支援を誠実に実施します。</p>
             <p>現在の主な業務内容を掲載しています。</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#services">行政書士業務を見る</a>
@@ -582,6 +713,12 @@
             <div class="caption">主要コンテンツを再構成しています。</div>
           </div>
         </div>
+
+        <section class="card panel today-word-box" id="today-word" aria-labelledby="todayWordTitle">
+          <div class="section-kicker">Today’s Word</div>
+          <h2 id="todayWordTitle">今日の言葉</h2>
+          <p id="todayWordText">読み込み中です。</p>
+        </section>
 
         <div class="grid-3">
           <article class="card feature-card">
@@ -597,7 +734,7 @@
           <article class="card feature-card">
             <div class="kicker">Carbon Neutral</div>
             <h3>地域脱炭素への貢献</h3>
-            <p>農業分野におけるカーボンニュートラル実現へ向けた実践的な伴走支援を行います。</p>
+            <p>農業分野におけるカーボンニュートラル、ネイチャーポジティブ実現へ向けた実践的な伴走支援を行います。</p>
           </article>
         </div>
 
@@ -610,7 +747,7 @@
               </div>
             </div>
             <div class="news-list">
-              <article class="news-item"><time>2025.03.25</time><div>GVA TECH株式会社との法人事務所アライアンス契約締結</div></article>
+              <article class="news-item"><time>2026.05.11</time><div>新HPの開設</div></article>
               <article class="news-item"><time>2024.11.14</time><div>商標登録「マイコス米」のマークの決定</div></article>
               <article class="news-item"><time>2024.03.28</time><div>行政書士梶山正信事務所：「パートナーシップ構築宣言」登録</div></article>
               <article class="news-item"><time>2024.03.13</time><div>一般社団法人みつばち協会 理事就任</div></article>
@@ -787,7 +924,7 @@
             <img src="https://static.toriaez.jp/uploads/images/m1265/22944-22944-20240615223018-2.jpg" alt="山本さんの写真" />
             <div class="body">
               <h4>経営者の山本さん</h4>
-              <p>現地で取り組みを進める経営者として紹介されています。</p>
+              <p>現地で取り組みを進める経営者として、多くの記事で紹介されています。</p>
             </div>
           </article>
           <article class="figure-card">
@@ -801,7 +938,7 @@
             <img src="https://toriaez-hp.jp/assets/1-B060000129/ZNLXqhhHcL-4.jpg" alt="収穫直前のマイコス米" />
             <div class="body">
               <h4>収穫直前のマイコス米</h4>
-              <p>豊作との説明が添えられています。</p>
+              <p>現場では豊作との説明がされています。</p>
             </div>
           </article>
           <article class="figure-card">
@@ -834,7 +971,7 @@
             <h3>経歴・活動概要</h3>
             <p>福岡県みやま市山川町出身。福岡・熊本を中心に農政の現場に関わり、関東でも千葉県内をはじめ各地の農政現場に携わってきたのち、2021年12月に農林水産省を早期退職し、2022年3月から行政書士として起業。</p>
             <p>農林水産省で20年以上取り組んだエコフィード化の知見や、全国自治体とのコネクションを活かし、一般社団法人フードロスゼロシステムズを設立。2021年にはグロービス経営大学院をMBAで卒業し、2023年5月からは早稲田大学招聘研究員としても活動しています。</p>
-            <p>特定行政書士として、農林水産業のカーボンニュートラル支援、経営改善、財務・管理会計、マーケティング戦略構築などを支援しています。</p>
+            <p>特定行政書士として、農林水産業のカーボンニュートラル等、経営改善、財務・管理会計、マーケティング戦略構築などを支援しています。</p>
           </div>
           <div class="card panel">
             <h3>会社情報</h3>
@@ -901,7 +1038,7 @@
           <div class="card panel">
             <h3>ご連絡方法</h3>
             <p>NEWホームページをご覧いただきありがとうございます。お急ぎの場合は、個人連絡先 070-4093-9561 までご連絡ください。</p>
-            <p>行政書士関係のご依頼は、相談内容の概要をフォームへ事前送信する案内になっています。通常、数日以内に返信との記載です。</p>
+            <p>行政書士関係のご依頼は、相談内容の概要をフォームへ事前送信をお願いします。通常、数日以内に返信いたします。</p>
             <p>返信がない場合は、047-497-1796（FAX兼）へ連絡をお願いします。</p>
           </div>
           <div class="card panel">
@@ -909,7 +1046,7 @@
             <p>元のHPフォームの場合は、下のボタンから元サイトへ移動できます。</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="https://www.foodloss-zero-systems.jp/form.html" target="_blank" rel="noopener">元HPの問い合わせフォーム</a>
-              <a class="btn btn-secondary" href="#profile">プロフィールを見る</a>
+              <a class="btn btn-secondary" href="#profile">プロフィールをご覧ください。</a>
             </div>
           </div>
         </div>
@@ -928,6 +1065,49 @@
       const validPages = pages.map(page => page.dataset.page);
       const navToggle = document.getElementById('navToggle');
       const navWrap = document.getElementById('navWrap');
+
+      const dailyInfoDate = document.getElementById('dailyInfoDate');
+      const dailyInfoWeekday = document.getElementById('dailyInfoWeekday');
+      const dailyInfoTime = document.getElementById('dailyInfoTime');
+      const dailyInfoRokuyo = document.getElementById('dailyInfoRokuyo');
+      const todayWordText = document.getElementById('todayWordText');
+      const todayWordJump = document.getElementById('todayWordJump');
+      const todayWordSection = document.getElementById('today-word');
+
+      const weekdayNames = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'];
+      const rokuyoCycle = ['大安', '赤口', '先勝', '友引', '先負', '仏滅'];
+      const todayWords = [
+        '一日一歩、着実に前へ進む。',
+        '小さな改善の積み重ねが、大きな成果になる。',
+        '誠実な対応が、信頼を育てる。',
+        '現場を知ることが、最善の解決につながる。',
+        '今ある資源に、新しい価値を見いだす。',
+        '続ける力が、未来を変えていく。',
+        '丁寧な仕事は、必ず相手に伝わる。',
+        '一粒の大切さを知る心が、社会を豊かにする。',
+        'できることから始めることが、最も確かな一歩。',
+        '地域の力を生かすことが、持続可能性を高める。',
+        '学び続ける姿勢が、新しい道を開く。',
+        '課題の中にこそ、次の可能性がある。',
+        '真摯な姿勢は、最良の名刺になる。',
+        '食を大切にする心が、未来の環境を守る。',
+        '今日の努力は、明日の安心につながる。',
+        '信頼は一朝一夕ではなく、日々の積み重ねで生まれる。',
+        '変化を恐れず、現場に合う形を探していく。',
+        '無駄を減らすことは、価値を増やすことでもある。',
+        '人と地域をつなぐ発想が、新しい力になる。',
+        '一つひとつの手続きに、誠実さを込める。',
+        '未来のために、今できる最善を選ぶ。',
+        '小さな工夫が、大きな循環を生み出す。',
+        '必要とされる場所に、必要な支援を届ける。',
+        '目の前の課題に、丁寧に向き合う。',
+        '経験は、次の挑戦を支える土台になる。',
+        '資源を生かす視点が、新たな可能性を広げる。',
+        '対話から、解決の糸口は見えてくる。',
+        '現場に寄り添うことが、本当の支援につながる。',
+        '今日を整えることが、明日を整える。',
+        '一歩を止めなければ、道は必ずつながっていく。'
+      ];
 
       function normalizeHash() {
         const hash = location.hash.replace('#', '').trim();
@@ -950,8 +1130,95 @@
         }
       }
 
+      function pad2(num) {
+        return String(num).padStart(2, '0');
+      }
+
+      function getRokuyo(date) {
+        try {
+          const parts = new Intl.DateTimeFormat('ja-JP-u-ca-chinese', {
+            month: 'numeric',
+            day: 'numeric'
+          }).formatToParts(date);
+
+          let lunarMonth = null;
+          let lunarDay = null;
+
+          parts.forEach(part => {
+            if (part.type === 'month') lunarMonth = parseInt(part.value, 10);
+            if (part.type === 'day') lunarDay = parseInt(part.value, 10);
+          });
+
+          if (Number.isInteger(lunarMonth) && Number.isInteger(lunarDay)) {
+            return rokuyoCycle[(lunarMonth + lunarDay) % 6];
+          }
+        } catch (e) {}
+
+        const fallbackBase = new Date(2024, 0, 1);
+        const diffDays = Math.floor((date - fallbackBase) / 86400000);
+        const index = ((diffDays % 6) + 6) % 6;
+        return ['先勝', '友引', '先負', '仏滅', '大安', '赤口'][index];
+      }
+
+      function getTodayWord(date) {
+        const seed = Number(
+          String(date.getFullYear()) +
+          String(date.getMonth() + 1).padStart(2, '0') +
+          String(date.getDate()).padStart(2, '0')
+        );
+        return todayWords[seed % todayWords.length];
+      }
+
+      function updateDailyInfo() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const day = now.getDate();
+        const weekdayIndex = now.getDay();
+        const weekday = weekdayNames[weekdayIndex];
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const rokuyo = getRokuyo(now);
+
+        if (dailyInfoDate) {
+          dailyInfoDate.textContent = `${year}年${month}月${day}日`;
+        }
+
+        if (dailyInfoWeekday) {
+          dailyInfoWeekday.textContent = weekday;
+          dailyInfoWeekday.className = 'daily-info-weekday';
+          if (weekdayIndex === 0) dailyInfoWeekday.classList.add('sun');
+          if (weekdayIndex === 6) dailyInfoWeekday.classList.add('sat');
+        }
+
+        if (dailyInfoTime) {
+          dailyInfoTime.textContent = `${hours}時${pad2(minutes)}分`;
+        }
+
+        if (dailyInfoRokuyo) {
+          dailyInfoRokuyo.textContent = rokuyo;
+        }
+
+        if (todayWordText) {
+          todayWordText.textContent = getTodayWord(now);
+        }
+      }
+
       window.addEventListener('hashchange', renderPage);
       window.addEventListener('DOMContentLoaded', renderPage);
+
+      window.addEventListener('DOMContentLoaded', () => {
+        updateDailyInfo();
+
+        setInterval(updateDailyInfo, 1000);
+
+        if (todayWordJump && todayWordSection) {
+          todayWordJump.addEventListener('click', (event) => {
+            event.preventDefault();
+            todayWordSection.scrollIntoView({ block: 'start', behavior: 'smooth' });
+          });
+        }
+      });
 
       navLinks.forEach(link => {
         link.addEventListener('click', () => navWrap.classList.remove('open'));
@@ -962,6 +1229,5 @@
       });
     })();
   </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
