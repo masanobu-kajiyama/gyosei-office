@@ -658,7 +658,7 @@
           <div class="brand-text">
             <div class="eyebrow">Foodloss Zero Systems</div>
             <div class="title">一般社団法人フードロスゼロシステムズ</div>
-            <div class="sub">特定行政書士【行政書士梶山正信事務所】</div>
+            <div class="title" style="color: #d4a63b;">特定行政書士【行政書士梶山正信事務所】</div>
           </div>
         </a>
         <div class="nav-wrap" id="navWrap">
@@ -667,7 +667,7 @@
             <ul class="nav-list" id="navList">
               <li><a href="#home">ホーム</a></li>
               <li><a href="#about">私たちについて</a></li>
-              <li><a href="#services">行政書士業務</a></li>
+              <li><a href="#services" style="color: #d4a63b;">行政書士業務</a></li>
               <li><a href="#process">業務ご依頼の流れ</a></li>
               <li><a href="#faq">よくあるご質問</a></li>
               <li><a href="#achievements">これまでの取り組み</a></li>
@@ -683,17 +683,19 @@
 
     <main>
       <section class="page active" id="home" data-page="home">
-        <div class="daily-info-bar" aria-label="本日の日付と時刻と六曜">
-          <div class="daily-info-main">
-            <span class="daily-info-date" id="dailyInfoDate">2026年5月12日</span>
-            <span class="daily-info-weekday" id="dailyInfoWeekday">火曜日</span>
-            <span class="daily-info-time" id="dailyInfoTime">8時44分</span>
-            <span class="daily-info-rokuyo" id="dailyInfoRokuyo">大安</span>
+        <div class="daily-info-bar" aria-label="本日の日付と時刻と六曜" style="padding: 16px 24px; box-shadow: 0 8px 24px rgba(212,166,59,0.15); border: 2px solid #ecdcb2;">
+          <div class="daily-info-main" style="gap: 12px;">
+            <span class="daily-info-date" id="dailyInfoDate" style="font-size: 24px;">2026年5月12日</span>
+            <span class="daily-info-weekday" id="dailyInfoWeekday" style="font-size: 18px; padding: 6px 14px;">火曜日</span>
+            <span class="daily-info-time" id="dailyInfoTime" style="font-size: 24px;">8時44分</span>
+            <span class="daily-info-rokuyo" id="dailyInfoRokuyo" style="font-size: 18px; padding: 6px 14px;">大安</span>
+            <span class="daily-info-rokuyo" style="background:#f4f9eb;color:#4a6b22;border-color:#d4e6ba;margin-left:4px; font-size: 18px; padding: 6px 14px;">農事歴: 田植え（代掻き）</span>
+            <span style="font-size:18px;color:#333;font-weight:800;">「春に育てた苗を水田に植え替える時期です。豊かな秋の実りを願い、全国各地で本格的な田植え作業が進められています。」</span>
           </div>
-          <span class="daily-info-sep" aria-hidden="true"></span>
-          <div class="daily-info-link">
-            <span aria-hidden="true">📖</span>
-            <a href="#today-word" id="todayWordJump">今日の言葉</a>
+          <span class="daily-info-sep" aria-hidden="true" style="height: 32px; width: 2px; background: #ecdcb2;"></span>
+          <div class="daily-info-link" style="font-size: 20px;">
+            <span aria-hidden="true" style="font-size: 24px;">📖</span>
+            <a href="#today-word" id="todayWordJump" style="color: #d4a63b; font-weight: 900;">今日の言葉</a>
           </div>
         </div>
 
@@ -714,10 +716,10 @@
           </div>
         </div>
 
-        <section class="card panel today-word-box" id="today-word" aria-labelledby="todayWordTitle">
-          <div class="section-kicker">Today’s Word</div>
-          <h2 id="todayWordTitle">今日の言葉</h2>
-          <p id="todayWordText">読み込み中です。</p>
+        <section class="card panel today-word-box" id="today-word" aria-labelledby="todayWordTitle" style="border: 4px solid #d4a63b; background: linear-gradient(180deg, #fffcf5, #fff); box-shadow: 0 10px 30px rgba(212,166,59,0.2); padding: 36px;">
+          <div class="section-kicker" style="font-size: 18px;">Today’s Word</div>
+          <h2 id="todayWordTitle" style="font-size: 36px; color: #d4a63b; font-weight: 900; margin-bottom: 20px;">今日の言葉</h2>
+          <p id="todayWordText" style="font-size: 32px; font-weight: 800; color: #333; line-height: 1.6;">「読み込み中です。」</p>
         </section>
 
         <div class="grid-3">
@@ -771,6 +773,27 @@
           </aside>
         </div>
 
+        <div class="card panel" style="margin-top:22px; background:linear-gradient(180deg, #fffcf5, #fff);">
+          <div class="section-kicker">Related Links</div>
+          <h3 style="color:var(--green-deep); margin-bottom:16px;">関係者リンク</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:16px;">
+            <a href="https://www.maff.go.jp/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px; padding:12px 20px; background:#fff; border:1px solid var(--line); border-radius:12px; color:#333; font-weight:700; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.03); transition:.2s;">
+              <span style="font-size:20px;">🌾</span> 農林水産省
+            </a>
+            <a href="https://tanemaki.org/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px; padding:12px 20px; background:#fff; border:1px solid var(--line); border-radius:12px; color:#333; font-weight:700; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.03); transition:.2s;">
+              <span style="font-size:20px;">🌱</span> 一般社団法人たねまき
+            </a>
+          </div>
+        </div>
+
+        <a href="https://www.facebook.com/masanobu.kajiyama" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:space-between; margin-top:16px; padding:18px 24px; background:linear-gradient(135deg, #1877f2, #145dbf); border-radius:18px; color:#fff; text-decoration:none; box-shadow:0 8px 20px rgba(24,119,242,0.25); transition:.2s;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:28px; background:#fff; color:#1877f2; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; font-weight:900; line-height:1; font-family:sans-serif;">f</span>
+            <strong style="font-size:18px; font-weight:800; letter-spacing:0.02em;">Facebook (梶山 正信)</strong>
+          </div>
+          <span style="font-size:14px; font-weight:700; background:rgba(255,255,255,0.2); padding:6px 14px; border-radius:999px;">公式ページへ</span>
+        </a>
+
         <div class="cta-strip">
           <div>
             <strong style="display:block;font-size:20px;color:var(--green-deep);margin-bottom:6px;">今回のHP変更ポイント</strong>
@@ -810,33 +833,46 @@
       <section class="page" id="services" data-page="services">
         <div class="page-title">
           <div class="section-kicker">Services</div>
-          <h2>行政書士業務</h2>
-          <p>農林水産業の現場と行政手続きに強みを持つ行政書士業務を、全国からの相談にも対応できます。</p>
+          <h2>行政書士業務【志は農業現場の課題解決！】</h2>
+          <p style="font-size: 24px; font-weight: 800; color: #333; line-height: 1.6; padding: 20px; border: 3px solid #d4a63b; border-radius: 12px; background: rgba(212,166,59,0.08); box-shadow: 0 6px 15px rgba(212,166,59,0.15);">農林水産業の現場に寄り添い、行政手続きだけでなく、経営改善や環境対応など、実質的な課題解決に向けた伴走支援を行います。全国からのご相談に対応可能です。</p>
         </div>
+
+        <div class="card panel" style="margin-bottom:24px; background:linear-gradient(135deg, #f9fbf4, #f2f7e9); border-left:6px solid #6c8d2b;">
+          <h3 style="color:#4a6b22; margin-bottom:12px;">🌱 現場の課題解決への取り組み</h3>
+          <p style="font-weight:700; color:#333;">私たちは単なる書類作成にとどまらず、農林水産業の現場が抱える真の課題に向き合います。</p>
+          <ul style="color:#444; line-height:1.8;">
+            <li><strong>フードロス削減・再生利活用：</strong> 規格外農産物や食品残さを未利用資源と捉え、新たなバリューチェーン構築や飼料化（エコフィード）等の実質的な解決策を提案します。</li>
+            <li><strong>地域脱炭素・ネイチャーポジティブ推進：</strong> 農業分野における温室効果ガス削減や、環境保全型農業への転換を支援し、環境価値を経営に活かす戦略を構築します。</li>
+            <li><strong>六次産業化・販路開拓：</strong> 生産から加工、販売までを見据え、商標登録を活用したブランド化や事業計画の策定を伴走して支援します。</li>
+            <li><strong>持続可能な経営体制の構築：</strong> 人手不足解消のための外国人材受け入れ（特定技能等）や、法人化を通じた経営基盤の強化をサポートします。</li>
+          </ul>
+        </div>
+
         <div class="grid-2">
           <div class="card panel">
-            <h3>対応内容</h3>
-            <ul>
+            <div class="section-kicker">Scope of Work</div>
+            <h3>具体的な対応内容</h3>
+            <ul style="line-height:1.8;">
               <li>農地転用を含む、中央官公庁・地方自治体への各種手続き支援</li>
-              <li>補助事業申請の提案・代理申請</li>
+              <li>補助事業申請の提案・代理申請（事業計画策定から伴走）</li>
               <li>VISA申請、農業分野等の外国人就労支援、申請取次業務</li>
               <li>畜産・養蜂・蜂蜜等の食品安全、HACCP関連の許可支援</li>
-              <li>一般社団法人・合同会社等の法人設立、電子申請による定款作成支援</li>
+              <li>一般社団法人・合同会社・農地所有適格法人等の設立支援</li>
               <li>商標登録、六次産業化への取り組み支援</li>
             </ul>
           </div>
           <div class="card panel">
+            <div class="section-kicker">Fee Structure</div>
             <h3>手数料の目安</h3>
-            <ul>
-              <li>初回相談: 無料</li>
-              <li>2回目以降: 5,000円＋交通費等の実費</li>
-              <li>基本受託手数料: 20万円未満は10%、20万円以上は5%を基本</li>
-              <li>難易度や案件内容によって変動するため、事前見積りを案内</li>
-              <li>申請実費は事前納入、在留資格等で困難案件も事前手数料納入をお願いします。</li>
+            <ul style="line-height:1.8;">
+              <li><strong>初回相談:</strong> 無料</li>
+              <li><strong>2回目以降の相談:</strong> 5,000円＋交通費等の実費</li>
+              <li><strong>基本受託手数料:</strong> 報酬額20万円未満は10%、20万円以上は5%を基本</li>
             </ul>
+            <p style="font-size:13px; color:var(--muted); margin-top:12px; background:#fcfcfc; padding:10px; border-radius:8px;">※難易度や案件内容によって変動するため、必ず事前にお見積りを案内します。<br>※申請実費は事前納入となります。在留資格等で困難な案件も事前手数料の納入をお願いしております。</p>
           </div>
         </div>
-        <div class="banner" style="margin-top:22px;">まずは無料相談・お見積りからご検討をお願いいたします。</div>
+        <div class="banner" style="margin-top:24px; text-align:center;">まずは無料相談から。現場の状況をお伺いし、最適な解決策をご提案いたします。</div>
       </section>
 
       <section class="page" id="process" data-page="process">
@@ -952,11 +988,11 @@
 
         <div class="card panel" style="margin-top:22px;">
           <h3>記事要約</h3>
-          <ul>
-            <li>マイコス米は2024年5月14日付で商標登録されました。</li>
-            <li>北海道共和町の山本さんが日本で初めて本格生産に取り組み、作付面積を拡大。</li>
-            <li>地域雇用や農福連携を重視した経営姿勢が強調されています。</li>
-            <li>米の安定供給や地域農業の維持に向けたイノベーションとして期待がされています。</li>
+          <ul style="font-weight: 800; color: #333; line-height: 1.8;">
+            <li>マイコス米は、2024年5月14日付で特許庁から商標登録をされました。</li>
+            <li>北海道共和町で農業経営をされている、合同会社共和町ぴかいちファーム代表の山本さんが日本で初めて本格生産に取り組み、作付面積を年々拡大しています。</li>
+            <li>山本さんの経営方針として、地域雇用や農福連携を重視した経営姿勢を強く意識されて、地域活動もされています。</li>
+            <li>今後の米の安定供給や地域農業の維持に向けたイノベーションとして、日本だけでなく世界レベルでも大きな期待がされています。</li>
           </ul>
         </div>
       </section>
@@ -1036,13 +1072,13 @@
         </div>
         <div class="grid-2">
           <div class="card panel">
-            <h3>ご連絡方法</h3>
+            <h3>【連絡方法について】</h3>
             <p>NEWホームページをご覧いただきありがとうございます。お急ぎの場合は、個人連絡先 070-4093-9561 までご連絡ください。</p>
             <p>行政書士関係のご依頼は、相談内容の概要をフォームへ事前送信をお願いします。通常、数日以内に返信いたします。</p>
             <p>返信がない場合は、047-497-1796（FAX兼）へ連絡をお願いします。</p>
           </div>
           <div class="card panel">
-            <h3>外部フォーム</h3>
+            <h3>【連絡フォーム】</h3>
             <p>元のHPフォームの場合は、下のボタンから元サイトへ移動できます。</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="https://www.foodloss-zero-systems.jp/form.html" target="_blank" rel="noopener">元HPの問い合わせフォーム</a>
@@ -1200,7 +1236,7 @@
         }
 
         if (todayWordText) {
-          todayWordText.textContent = getTodayWord(now);
+          todayWordText.textContent = '「' + getTodayWord(now) + '」';
         }
       }
 
