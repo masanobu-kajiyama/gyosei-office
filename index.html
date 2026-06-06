@@ -8,6 +8,7 @@
   <title>特定行政書士 梶山正信事務所 | 一般社団法人フードロスゼロシステムズ</title>
   <meta name="description" content="千葉県白井市を拠点に、全国の農林水産業の課題解決をフルサポートする特定行政書士・梶山正信事務所（一般社団法人フードロスゼロシステムズ）。マイコス米の普及、カーボンニュートラル対応、エコフィード化、経営コンサルティングなど、現場に寄り添った伴走支援を行います。" />
   <meta name="keywords" content="行政書士, 梶山正信, フードロスゼロシステムズ, マイコス米, 農業コンサルティング, エコフィード, 農林水産省, 千葉県, 白井市, 課題解決" />
+  <meta name="robots" content="index, follow" />
   
   <!-- OGP（SNS等でシェアされた時の表示設定） -->
   <meta property="og:title" content="特定行政書士 梶山正信事務所 | 一般社団法人フードロスゼロシステムズ" />
@@ -658,6 +659,66 @@
       .daily-info-sep {
         display: none;
       }
+
+      .update-ticker-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .update-ticker-content {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    
+    .update-ticker-wrap {
+      overflow: hidden;
+      background: linear-gradient(90deg, #536e1f, #6c8d2b);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 16px;
+      margin-bottom: 22px;
+      box-shadow: 0 6px 15px rgba(108,141,43,0.25);
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .update-ticker-label {
+      background: #d4a63b;
+      color: #fff;
+      font-weight: 900;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      white-space: nowrap;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .update-ticker-content {
+      flex: 1;
+      overflow: hidden;
+      margin-left: 16px;
+      position: relative;
+    }
+
+    .update-ticker-text {
+      display: inline-block;
+      white-space: nowrap;
+      font-weight: 800;
+      font-size: 16px;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+    }
+
+    .update-ticker-text:hover {
+      animation-play-state: paused;
     }
   </style>
 </head>
@@ -695,6 +756,14 @@
 
     <main>
       <section class="page active" id="home" data-page="home">
+        
+        <div class="update-ticker-wrap">
+          <div class="update-ticker-label">New Updates</div>
+          <div class="update-ticker-content">
+            <span class="update-ticker-text">■今回のHPの改修点　①「今月のECO-AGRIの”気になる農業ブログ”」の開設　②よくあるご質問の追加</span>
+          </div>
+        </div>
+
         <div class="daily-info-bar" aria-label="本日の日付と時刻と六曜" style="padding: 16px 24px; box-shadow: 0 8px 24px rgba(212,166,59,0.15); border: 2px solid #ecdcb2;">
           <div class="daily-info-main" style="gap: 12px;">
             <span class="daily-info-date" id="dailyInfoDate" style="font-size: 24px;">2026年5月12日</span>
@@ -724,7 +793,10 @@
           </div>
           <div class="hero-media card">
             <img src="https://toriaez-hp.jp/assets/1-B060000129/slide-KJu7ndMyEK.jpg" alt="メインビジュアル" />
-            <div class="caption">主要コンテンツを再構成しています。</div>
+            <div class="caption" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px 8px 16px;">
+              <span>主要コンテンツを再構成しています。</span>
+              <a class="btn btn-primary" href="#mycos" style="padding: 8px 16px; font-size: 13px;">マイコス米日記へ</a>
+            </div>
           </div>
         </div>
 
@@ -827,12 +899,27 @@
           <span style="font-size:14px; font-weight:700; background:rgba(255,255,255,0.2); padding:6px 14px; border-radius:999px;">公式ページへ</span>
         </a>
 
-        <div class="cta-strip">
-          <div>
-            <strong style="display:block;font-size:20px;color:var(--green-deep);margin-bottom:6px;">今回のHP変更ポイント</strong>
-            <span>各ページ視認性を向上しています。</span>
+        <div class="blog-container card panel" style="margin-top: 26px; border: 2px solid rgba(108,141,43,0.3); background: linear-gradient(180deg, #fffcf5, #fff);">
+          <div class="section-kicker" style="color: #d4a63b; font-size: 14px;">Monthly Blog</div>
+          <h2 style="color: var(--green-deep); margin-bottom: 20px; font-size: 24px; border-bottom: 2px dashed rgba(108,141,43,0.2); padding-bottom: 12px;">
+            <span style="font-size: 28px; margin-right: 8px;">✒️</span>今月のECO-AGRIの”気になる農業ブログ”
+          </h2>
+          
+          <div class="blog-scroll-area" style="max-height: 400px; overflow-y: auto; padding-right: 16px; scrollbar-width: thin; scrollbar-color: rgba(108,141,43,0.4) transparent;">
+            <article class="blog-entry" style="background: #fff; border: 1px solid #e8dfd0; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+              <div class="blog-content" style="color: #3b3b3b; line-height: 1.9; font-size: 15px;">
+                <p>　私は、この「一般社団法人フードロスゼロシステムズ」の代表理事、また「行政書士梶山正信事務所」の代表をしています、特定行政書士の梶山正信と申します。</p>
+                <p>　全国各地では、現在、稲作における田植えが行われている季節となっていますが、農業においてもその平均年齢の高齢化で離農する農家が増加し、日本で言えば滋賀県の面積の耕作放棄地が発生しています。このため、多くの水田でまだ田植えができていないところが多くあるやに聞いていますが、皆様の近くの水田の田植えは順調に進んでいますでしょうか？</p>
+                <p>　また、中山間地の水田では、既に長期間の耕作放棄により、水田の灌漑機能自体が崩壊し、既に水田としての機能を失ってしまっている地域もあるようです。このため、今後は今までのようには水を使わない稲作である、節水型の乾田直播という技術や、その他にも多くの新たな作付け技術の開発により、農業においてもこのマイコス米日記のページにあるような革新的なイノベーションが進みつつあります。</p>
+                <p>　私は、そのことに取り組む先進的な農業経営者、そしてそんなイノベーターの経営戦略をサポートし、持続性のある再生可能な日本の農業の発展を目指しています。どうぞ、今後は定期的にこの”気になる農業ブログ”を更新していきますので、お読みいただけますようよろしくお願いいたします。</p>
+              </div>
+              <div class="blog-footer" style="margin-top: 20px; text-align: right;">
+                <span style="display: inline-block; background: rgba(212,166,59,0.1); padding: 8px 16px; border-radius: 999px; color: #42531b;">
+                  <u><b>２０２６年６月：第１回吉日</b></u>
+                </span>
+              </div>
+            </article>
           </div>
-          <a class="btn btn-primary" href="#mycos">マイコス米日記へ</a>
         </div>
       </section>
 
@@ -936,7 +1023,7 @@
         </div>
         <div class="section-stack">
           <div class="faq-item">
-            <strong>Q. 本当に最初の相談は無料でよいのか？</strong>
+            <strong>Q. 本当に最初の相談は無料でよいのですか？</strong>
             <div>A. そもそも最初の相談は行政書士に困ってること自体を、どう話してよいかも分からないと思いますので本当に相談内容に入るまでに時間を要することが多々あります。ですので、先ずは無料で目の前の事象をしっかりとお互いの共通認識の上で課題化して、そこから具体的に契約をスタートすることになりますので、それまでの費用はいただきません。</div>
           </div>
           <div class="faq-item">
@@ -946,6 +1033,14 @@
           <div class="faq-item">
             <strong>Q. 農林水産業以外の依頼もできますか？</strong>
             <div>A. 基本的には農林水産業に関係する現場課題を優先し、場合によっては受任できないことがあります。その際は千葉県行政書士会因幡支部への再依頼案内ができます。</div>
+          </div>
+          <div class="faq-item">
+            <strong>Q. 農業のM&Aも増えているようですが、その対応はできますか？</strong>
+            <div>A. 農業分野もM&Aが増加していますが、個人、また小企業が太宗を占める農業経営においては、一般的な企業買収でのファンドや他の企業からの買収という形態ではなく、良い人が居るのであれば無償で若い新規農業者に引き継ぎたいとの声を地元の農業経営者からもいただいています。私は、地域の未来のためにそのようなケースもご相談に対応しますので、先ずはお気軽にご相談ください。</div>
+          </div>
+          <div class="faq-item">
+            <strong>Q. 顧問契約を結ぶ場合の月の契約料の目安を教えてもらえますか？</strong>
+            <div>A. 勿論、その業務内容によりますが、月額10万円を基本にお考え下さい。ただし、その農業経営者の目的であるミッション、また事業に取り組む志をお聞きして、私の方で状況に応じて値引きすることは可能ですので、農業における顧問契約は敷居が高いとよく言われますが、私の場合はそのような先入観は持っていただく必要はございません。</div>
           </div>
         </div>
       </section>
