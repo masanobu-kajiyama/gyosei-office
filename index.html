@@ -768,8 +768,8 @@
             <span class="daily-info-weekday" id="dailyInfoWeekday" style="font-size: 18px; padding: 6px 14px;">火曜日</span>
             <span class="daily-info-time" id="dailyInfoTime" style="font-size: 24px;">8時44分</span>
             <span class="daily-info-rokuyo" id="dailyInfoRokuyo" style="font-size: 18px; padding: 6px 14px;">大安</span>
-            <span class="daily-info-rokuyo" style="background:#f4f9eb;color:#4a6b22;border-color:#d4e6ba;margin-left:4px; font-size: 18px; padding: 6px 14px;">農事歴: 中干しと夏の水管理</span>
-            <span style="font-size:18px;color:#333;font-weight:800;">「稲の根を強く張らせるため、田んぼの水を一度抜いて乾かす『中干し』の時期です。暑さ厳しい中、秋の豊作に向けた大切な水管理が続きます。」</span>
+            <span class="daily-info-rokuyo" id="agriCalendarTitle" style="background:#f4f9eb;color:#4a6b22;border-color:#d4e6ba;margin-left:4px; font-size: 18px; padding: 6px 14px;">農事歴: 中干しと夏の水管理</span>
+            <span id="agriCalendarDesc" style="font-size:18px;color:#333;font-weight:800;">「稲の根を強く張らせるため、田んぼの水を一度抜いて乾かす『中干し』の時期です。暑さ厳しい中、秋の豊作に向けた大切な水管理が続きます。」</span>
           </div>
           <span class="daily-info-sep" aria-hidden="true" style="height: 32px; width: 2px; background: #ecdcb2;"></span>
           <div class="daily-info-link" style="font-size: 20px;">
@@ -2139,12 +2139,28 @@
       const dailyInfoWeekday = document.getElementById('dailyInfoWeekday');
       const dailyInfoTime = document.getElementById('dailyInfoTime');
       const dailyInfoRokuyo = document.getElementById('dailyInfoRokuyo');
+      const agriCalendarTitle = document.getElementById('agriCalendarTitle');
+      const agriCalendarDesc = document.getElementById('agriCalendarDesc');
       const todayWordText = document.getElementById('todayWordText');
       const todayWordJump = document.getElementById('todayWordJump');
       const todayWordSection = document.getElementById('today-word');
 
       const weekdayNames = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'];
       const rokuyoCycle = ['大安', '赤口', '先勝', '友引', '先負', '仏滅'];
+      const agriCalendar = [
+        { title: "冬の土づくり", desc: "「寒さの厳しい時期ですが、春の作付けに向けた土づくりや計画立てを行う重要な準備期間です。」" },
+        { title: "春の準備・種もみの選別", desc: "「少しずつ春の足音が聞こえる頃。良い苗を育てるため、種もみの選別や消毒などの準備が始まります。」" },
+        { title: "種まき・育苗", desc: "「本格的な春の訪れとともに、種まきと育苗が始まります。元気な苗を育てるための温度・水分管理が重要です。」" },
+        { title: "田起こし・代掻き", desc: "「田んぼの土を砕いて平らにし、水を張る代掻きの時期です。田植えに向けた最終的な環境整備を行います。」" },
+        { title: "田植え", desc: "「春に育てた苗を水田に植え替える時期です。豊かな秋の実りを願い、全国各地で本格的な田植え作業が進められています。」" },
+        { title: "水管理・中耕除草", desc: "「梅雨に入り、稲がぐんぐんと成長する時期。きめ細やかな水管理と、雑草を取り除く作業が欠かせません。」" },
+        { title: "中干しと夏の水管理", desc: "「稲の根を強く張らせるため、田んぼの水を一度抜いて乾かす『中干し』の時期です。暑さ厳しい中、秋の豊作に向けた大切な水管理が続きます。」" },
+        { title: "出穂・穂ばらみ期", desc: "「稲の穂が出る重要な時期です。この時期の天候や水管理が、お米の収量と品質を大きく左右します。」" },
+        { title: "稲刈り・収穫", desc: "「黄金色に実った稲を収穫する喜びの時期です。新米が全国の食卓へ届けられる、実りの秋の到来です。」" },
+        { title: "秋起こし・土づくり", desc: "「収穫を終えた田んぼを耕し、わらや肥料をすき込んで来年のための土づくりを始める時期です。」" },
+        { title: "麦の種まき・冬支度", desc: "「冬作物の種まきが行われ、農地は冬越しの準備に入ります。一年間の収穫に感謝する季節でもあります。」" },
+        { title: "農閑期の整備・計画", desc: "「農機具のメンテナンスや、来年の作付け計画を練る時期。静かな田んぼは、次の春に向けて力を蓄えています。」" }
+      ];
       const todayWords = [
         '一日一歩、着実に前へ進む。',
         '小さな改善の積み重ねが、大きな成果になる。',
@@ -2266,6 +2282,12 @@
 
         if (dailyInfoRokuyo) {
           dailyInfoRokuyo.textContent = rokuyo;
+        }
+
+        if (agriCalendarTitle && agriCalendarDesc) {
+          const mIndex = now.getMonth();
+          agriCalendarTitle.textContent = "農事歴: " + agriCalendar[mIndex].title;
+          agriCalendarDesc.textContent = agriCalendar[mIndex].desc;
         }
 
         if (todayWordText) {
