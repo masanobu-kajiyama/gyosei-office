@@ -52,6 +52,40 @@
       flex-direction: column;
     }
 
+    /* NEW! 吹き出しバッジ */
+    .new-speech-bubble {
+      position: absolute;
+      top: -12px;
+      right: -8px;
+      background: linear-gradient(135deg, #ff3b30, #e74c3c);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 2px 7px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(255, 59, 48, 0.45);
+      line-height: 1.2;
+      z-index: 20;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+      animation: pulse-bubble 2s infinite ease-in-out;
+    }
+    .new-speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 25%;
+      border-width: 4px 4px 0;
+      border-style: solid;
+      border-color: #e74c3c transparent transparent transparent;
+      display: block;
+      width: 0;
+    }
+    @keyframes pulse-bubble {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
     .topbar {
       background: rgba(255,255,255,0.88);
       backdrop-filter: blur(10px);
@@ -732,9 +766,9 @@
     <header class="topbar">
       <div class="topbar-inner">
         <a class="brand" href="#home" aria-label="ホームへ移動">
-          <img src="eco-agri.jpg" alt="Eco-Agri Strategy Office ロゴ" />
+          <img src="AI-eco-agri.jpg" alt="Eco-Agri Strategy Office ロゴ" />
           <div class="brand-text">
-            <div class="eyebrow"> Eco-Agri Strategy Office</div>
+            <div class="eyebrow"> AI×Eco-Agri Strategy Office</div>
             <div class="title">一般社団法人フードロスゼロシステムズ</div>
             <div class="title" style="color: #d4a63b;">特定行政書士【行政書士梶山正信事務所】</div>
           </div>
@@ -743,10 +777,11 @@
           <button class="nav-toggle" id="navToggle">メニュー</button>
           <nav aria-label="主要ナビゲーション">
             <ul class="nav-list" id="navList">
-              <li><a href="#home">ホーム</a></li>
+              <li><a href="#home">AI×ホーム</a></li>
               <li><a href="#services" style="color: #d4a63b;">行政書士業務</a></li>
               <li><a href="#corporate" style="color: #d4a63b;">#法人設立</a></li>
               <li><a href="#agri-inheritance" style="color: #d4a63b;">#農業・相続</a></li>
+              <li><a href="#ai-social-tax" style="color: #d4a63b; position: relative; display: inline-block;">#AI×社会保障&納税<span class="new-speech-bubble">NEW！</span></a></li>
               <li><a href="#process">業務ご依頼の流れ</a></li>
               <li><a href="#mycos">マイコス米日記</a></li>
               <li><a href="#access">地図・アクセス＆お問い合わせ</a></li>
@@ -760,9 +795,9 @@
       <section class="page active" id="home" data-page="home">
         
         <div class="update-ticker-wrap">
-          <div class="update-ticker-label">New Updates</div>
+          <div class="update-ticker-label">AI×New Updates</div>
           <div class="update-ticker-content">
-            <span class="update-ticker-text">■今回のHPの変更点　①8月9日付け「今週のECO-AGRIの”気になる農業ブログ”」の追加　②各のページの随時改善</span>
+            <span class="update-ticker-text">💰気になるAIトピック：「食品消費税１％へ！」　■今回のHPの変更点　①HPをAIとの協業でリニューアル！　②NEWページ：#AI×社会保障＆納税のページに節税の為の概算額での無料シミュレーターを導入　③8月16日付け「今週のECO-AGRIの”気になる農業ブログ”」の追加</span>
           </div>
         </div>
 
@@ -785,13 +820,14 @@
         <div class="hero">
           <div class="hero-copy card">
             <div class="badge">新HPへの移行について</div>
-            <h1>フードロスゼロ社会の実現と、農林水産業の現場課題の解決へ</h1>
-            <p class="lead">法律・行政手続き支援、食品残さの再生利活用、農林水産業の経営改善、サーキュラーエコノミーからカーボンニュートラル、そしてネイチャーポジティブ推進まで、現場に寄り添う伴走支援を誠実に実施します。</p>
+            <h1>AIとの協業で、フードロスゼロ社会の実現と、農林水産業の現場課題の解決へ</h1>
+            <p class="lead">法律・行政手続き支援、食品残さの再生利活用、農林水産業の経営改善、サーキュラーエコノミーからカーボンニュートラル、そしてネイチャーポジティブ推進まで、AIエージェントと共に現場に寄り添う伴走支援を誠実に実施します。</p>
             <p>現在の主な業務内容を掲載しています。</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#services">行政書士業務を見る</a>
               <a class="btn btn-secondary" href="#corporate">#法人設立を見る</a>
               <a class="btn btn-secondary" href="#agri-inheritance">#農業・相続を見る</a>
+              <a class="btn btn-secondary" href="#ai-social-tax" style="position: relative; overflow: visible;">#AI×社会保障&納税を見る<span class="new-speech-bubble">NEW！</span></a>
             </div>
           </div>
           <div class="hero-media card">
@@ -805,7 +841,7 @@
 
         <section class="card panel today-word-box" id="today-word" aria-labelledby="todayWordTitle" style="border: 4px solid #d4a63b; background: linear-gradient(180deg, #fffcf5, #fff); box-shadow: 0 10px 30px rgba(212,166,59,0.2); padding: 36px;">
           <div class="section-kicker" style="font-size: 18px;">Today’s Word</div>
-          <h2 id="todayWordTitle" style="font-size: 36px; color: #d4a63b; font-weight: 900; margin-bottom: 20px;">今日の言葉</h2>
+          <h2 id="todayWordTitle" style="font-size: 36px; color: #d4a63b; font-weight: 900; margin-bottom: 20px;">AI×今日の言葉</h2>
           <p id="todayWordText" style="font-size: 32px; font-weight: 800; color: #333; line-height: 1.6;">「読み込み中です。」</p>
         </section>
 
@@ -836,6 +872,7 @@
               </div>
             </div>
             <div class="news-list">
+              <article class="news-item"><time>2026.08.16</time><div>AIとの協業による個人向けNew projectの創設</div></article>
               <article class="news-item"><time>2026.05.11</time><div>新HPの開設</div></article>
               <article class="news-item"><time>2024.11.14</time><div>商標登録「マイコス米」のマークの決定</div></article>
               <article class="news-item"><time>2024.03.28</time><div>行政書士梶山正信事務所：「パートナーシップ構築宣言」登録</div></article>
@@ -849,7 +886,7 @@
             <h2 style="color:#fff">ご相談・お問い合わせ</h2>
             <p style="margin-bottom: 16px;">農家・個人事業主の皆様、まずはお気軽に携帯電話へお電話ください！</p>
             
-            <a href="tel:07040939561" style="display: inline-block; background: #d13b3b; color: #fff; font-size: 26px; font-weight: 900; padding: 16px 32px; border-radius: 999px; text-decoration: none; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <a href="tel:07040939561" style="display: inline-block; background: #3399ff; color: #fff; font-size: 26px; font-weight: 900; padding: 16px 32px; border-radius: 999px; text-decoration: none; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
               📞 携帯: 070-4093-9561
             </a>
             
@@ -916,6 +953,15 @@
           <div class="blog-scroll-area" style="max-height: 400px; overflow-y: auto; padding-right: 16px; scrollbar-width: thin; scrollbar-color: rgba(108,141,43,0.4) transparent;">
             <article class="blog-entry" style="background: #fff; border: 1px solid #e8dfd0; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
               <div class="blog-content" style="color: #3b3b3b; line-height: 1.9; font-size: 15px;">
+                <p>　お盆の三が日が開けて、今日から8月も後半戦！皆様、毎日暑いですが元気にお過ごしでしょうか？。私は九州福岡の出身ですので、子供のころから長崎の原爆資料館、そして大人になって初めて広島の原爆資料館を見に行って、本当に原爆だけでなく戦争が如何に悲惨で、絶対にこの日本が起こしてはならないことだと感じました。</p>
+                <p>　また、丁度お盆に係る12日は、あの史上最大の航空機事故である、日航ジャンボ機が御巣鷹山に墜落した日です。当然、その日は多くの関係者が御巣鷹山に慰霊登山されたと思いますが、これもまた、戦争と同じで絶対に風化させてはならない記憶だと思っています。そう、先日は、千葉でもこれまでに経験したことがない豪雨で、現状でも9名の方が亡くなったとありますので、本当にこれまで経験したことがないことは、案外、明日身近に起きるかも知れませんので！</p>
+                <p>　そのことで話は変わりますが、あのJAL123便に搭乗予定だったけど、仕事の都合で乗らなかった明石家さんまさんの言葉が出てますが、本当にあの事故で自分は死んでいたと考えれば、その後は何でもできたと言われてましたけど、本当に人の生き死には神のみぞ知るで、私も明日死ぬかもしれない、だから今日を精いっぱい生きよう！時間は命だ！！と思って、今日の1分1秒を大切に、これからも生きていきたいと思います。</p>
+                <div style="text-align: right; margin-top: 10px;">
+                  <span style="display: inline-block; background: rgba(212,166,59,0.1); padding: 4px 12px; border-radius: 999px; color: #42531b; font-size: 13px;">
+                    <u><b>2026年8月16日</b></u>
+                  </span>
+                </div>
+                <hr style="border: 0; border-top: 1px dashed #d9d2c3; margin: 24px 0;"> 
                 <p>　今日も被災地熊本は、酷暑になるかも知れませんし、まだ多くの地域で気温が40℃越えのところも出るかもしれません。ただ、私の住んでいる千葉は、本当に夜まで熱波で寝れないみたいな気温ではない日も出てきました。つまり暑さ寒さも彼岸までという言葉があるように、大暑の8月6日は過ぎましたので、昼間はまだまだ暑いかもですが、これから夜は徐々に気温が下がることを期待します。因みに、稲はそのことを敏感に感知して成熟をしていくと言われていますので、人よりコメの方が気温に敏感だと思います！</p>
                 <p>　ちょっと被災地の事で、1点気になることがあるのでここに書きますが、皆様もご自宅付近の防災訓練に参加するとその場所の体育館で、家族用の簡易テントみたいなものを見られたことがあると思います。もう10年前と違って、このようなプライバシーを守る防災テントの導入も、全国の自治体で進んでいますから熊本でそれが全くないということはあり得ません。ただ、今回の被災者もかなりの数になるでしょうし場所も多岐にわたるでしょうから、それが全てにいきわたるとは私も考えていません。ですので、学校の小さな体育館の板の上に布団やマットを敷いて避難している方が大勢いるのは事実でしょうけど、YouTubeで声高に叫ぶのが全てではないと考えていただきたいと思います。</p>
                 <p>　重ねてですが、既に多くのサポートの方が熊本に入られて支援されてますし、例え棄てることになっても足りないことよりましなのでプッシュ型で政府も現地に必要な資材を送ってるはずです。それでも水が足りないと言われていますが、熊本は元々水道はほぼ100％地下水ですので、熊本も更に地方に行くほど水の心配は少ないと考えられます。逆に、これが東京のような地域で起きたなら、本当に多くの水が足りなくなることが考えられますので、よくよくその準備、対策をこのことを教訓にしておくべきだと私は考えます！</p>
@@ -924,7 +970,8 @@
                     <u><b>2026年8月9日</b></u>
                   </span>
                 </div>
-                <hr style="border: 0; border-top: 1px dashed #d9d2c3; margin: 24px 0;">  <p>　毎日うだるような酷暑が続いていますが、皆様いかがお過ごしでしょうか。今日から農事歴も中干期から出穂・穂ばらみ期に変わりましたけど、近年、気温の上昇に伴い収穫時期が早まっていますが、既に宮崎県などの早場米の出荷が始まったということで、生産者の皆様には、令和８年度産のコメの価格がどうなるかが一番気になるところかと存じます。</p>
+                <hr style="border: 0; border-top: 1px dashed #d9d2c3; margin: 24px 0;">  
+                <p>　毎日うだるような酷暑が続いていますが、皆様いかがお過ごしでしょうか。今日から農事歴も中干期から出穂・穂ばらみ期に変わりましたけど、近年、気温の上昇に伴い収穫時期が早まっていますが、既に宮崎県などの早場米の出荷が始まったということで、生産者の皆様には、令和８年度産のコメの価格がどうなるかが一番気になるところかと存じます。</p>
                 <p>　既にご存じのように、農協への概算金が昨年の半額程度だという話もちらほら聞きますが、懸念されるように市場在庫が約250万トンを超える見込みからも、需給のアンバランスで令和８年度産の価格が下がることは明らかだと私も考えています。現に、私の千葉のスーパーでも昨年の地元産のコシヒカリが３千円/５kgを切るようになっているところです。</p>
                 <p>　ただ今回の最後は、今回起きた熊本での大地震について少し触れて締めたいと思います。熊本では10年前に同じく大地震が起きたばかりで、私の中でも何でまた熊本が！という想いは非常にあります。ただ、地震は何処で起きるか分かりません。ですので、起きたことを悔やむのではなく、前回の経験も活かし、これからどのように迅速に復興へ向かうのか！そして今の避難で更なる被害者を出さないためにどのように支援を行うのかを日本国民全体が積極的に考える機会にしていただけるのが一番被災者の想いに添えるかと思います。以上、最後は少し長くなりましたが、福岡県出身の私も熊本県には親戚も知り合いも居て、転勤で九州農政局に居た時には健軍町の自衛隊本部の横の官舎に住んでいましたので、他人ごとではなく自分事として、これからも被災地に接していきたいと考えているところです。</p>
                 <div style="text-align: right; margin-top: 10px;">
@@ -1032,7 +1079,7 @@
         <div id="about" style="margin-top: 40px;">
           <div class="page-title">
             <div class="section-kicker">About</div>
-            <h2>私たちについて</h2>
+            <h2>AIと私たちについて</h2>
             <p>信頼・真摯・誠実の3Sを基本とし、フードロス削減と地域の持続可能な発展を両立することを目指すページです。</p>
           </div>
           <div class="grid-3">
@@ -1066,7 +1113,7 @@
               <h3>経歴・活動概要</h3>
               <p>福岡県みやま市山川町出身。福岡・熊本を中心に農政の現場に関わり、その後、霞が関の本省で国会業務や政策の策定等に関わりながら、関東でも千葉県内をはじめ各地の農政現場に携わってきたのち、2021年12月に農林水産省を早期退職し、2022年3月から行政書士として開業しました。</p>
               <p>農林水産省で20年以上取り組んだエコフィード化の知見や、全国自治体とのコネクションを活かし、一般社団法人フードロスゼロシステムズを設立し起業。2021年にはグロービス経営大学院をMBAで卒業し、その知見を活かしながら中小企業等の経営サポートをしながら、2023年5月からは早稲田大学招聘研究員としても活動しています。</p>
-              <p>現在は、特定行政書士として、農林水産業のカーボンニュートラル等、経営改善、財務・管理会計、マーケティング戦略構築など中心に中小企業の経営者や個人事業主の皆様を支援しています。</p>
+              <p>現在は、特定行政書士として、農林水産業のネーチャーポジティブやカーボンニュートラル等、経営改善、財務・管理会計、マーケティング戦略構築など中心に中小企業の経営者や個人事業主の皆様を、AIエージェントとの協業により迅速かつ的確に支援しています。</p>
             </div>
             <div class="card panel">
               <h3>会社情報</h3>
@@ -1716,6 +1763,26 @@
           </div>
         </div>
 
+        <!-- 関連ページ -->
+        <div style="margin-bottom: 28px;">
+          <div class="section-kicker" style="margin-bottom: 12px;">Related Pages</div>
+          <h3 style="font-size: 22px; color: #536e1f; margin-bottom: 16px;">🔗 関連ページ</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+            <a href="#ai-social-tax" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">🤖</span> #AI×社会保障&納税
+            </a>
+            <a href="#agri-inheritance" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">🌾</span> #農業・相続
+            </a>
+            <a href="#services" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">📜</span> 行政書士業務
+            </a>
+            <a href="#access" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">📩</span> お問い合わせ
+            </a>
+          </div>
+        </div>
+
         <div class="banner" style="text-align: center; font-size: 16px;">
           🏛️ 法人設立は「目的に合った器選び」です。最適な選択のために、まずは無料相談をご利用ください。
         </div>
@@ -1940,7 +2007,10 @@
           <h3 style="font-size: 22px; color: #536e1f; margin-bottom: 16px;">🔗 関連ページ</h3>
           <div style="display: flex; flex-wrap: wrap; gap: 14px;">
             <a href="#corporate" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
-              <span style="font-size: 20px;">🏛️</span> 法人設立
+              <span style="font-size: 20px;">🏛️</span> #法人設立
+            </a>
+            <a href="#ai-social-tax" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">🤖</span> #AI×社会保障&納税
             </a>
             <a href="#services" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
               <span style="font-size: 20px;">🌾</span> 行政書士業務（農地転用・補助金）
@@ -1967,6 +2037,915 @@
 
         <div class="banner" style="text-align: center; font-size: 16px;">
           🌾 農業・農地の相続でお悩みの方は、農業に精通した行政書士にご相談ください。
+        </div>
+      </section>
+
+      <!-- ===== AI×社会保障&納税 ページ ===== -->
+      <section class="page" id="ai-social-tax" data-page="ai-social-tax">
+        <!-- ① ファーストビュー（最上部） -->
+        <div style="background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); border: 3px solid #d4a63b; border-radius: 20px; padding: 44px 38px; margin-bottom: 32px; box-shadow: 0 16px 40px rgba(0,0,0,0.3); color: #fff; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: -80px; right: -80px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(212,166,59,0.25), transparent); border-radius: 50%;"></div>
+          <div style="position: absolute; bottom: -60px; left: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(108,141,43,0.2), transparent); border-radius: 50%;"></div>
+          <div style="position: relative; z-index: 1;">
+            <div style="display: inline-block; padding: 8px 16px; border-radius: 999px; background: rgba(212,166,59,0.2); border: 1px solid rgba(212,166,59,0.4); color: #ffe8a0; font-weight: 800; font-size: 14px; margin-bottom: 16px; letter-spacing: 0.05em;">
+              🤖 AIエージェント×最適節税・社会保障費削減
+            </div>
+            <h1 style="font-size: clamp(28px, 4vw, 44px); color: #ffffff; margin-bottom: 16px; font-weight: 900; line-height: 1.3;">
+              AI×社会保障&納税
+            </h1>
+            <p style="font-size: clamp(20px, 2.5vw, 28px); color: #d4a63b; font-weight: 900; margin-bottom: 18px; line-height: 1.4;">
+              「普通の士業には無理」を、生成AIエージェント活用で可能に。<br>
+              知識ゼロのサラリーマンでもできる！手取りを最大化する「AI時代の個人事業主・マイクロ法人活用術」
+            </p>
+            <p style="font-size: 17px; color: rgba(255,255,255,0.9); line-height: 1.9; max-width: 900px; margin-bottom: 24px;">
+              面倒なシミュレーションや書類準備は、専門知識を学習させた独自の生成AIが自動化＆完全サポート。誰でも迷わず手取り額アップの試算が実行できます。
+            </p>
+            <div style="background: rgba(255,255,255,0.1); border: 1px dashed rgba(212,166,59,0.5); border-radius: 12px; padding: 14px 18px; margin-top: 20px; margin-bottom: 20px;">
+              <p style="font-size: 14px; color: #ffe8a0; font-weight: 800; margin: 0 0 6px;">
+                ✉️ ご相談受付に関するご案内（原則メール・Webフォーム）
+              </p>
+              <p style="font-size: 13px; color: rgba(255,255,255,0.88); margin: 0; line-height: 1.6;">
+                ※本サービスに関するご相談は、ご要望内容の正確な共有と迅速対応のため、原則お電話ではなくWeb問い合わせフォーム（メール）より承っております。下記バナーよりフォームへ進み、ご要望を記入の上送信してください。
+              </p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 16px;">
+              <a href="https://www.foodloss-zero-systems.jp/form.html" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: linear-gradient(180deg, #d4a63b, #b8860b); color: #fff; font-weight: 900; font-size: 18px; border-radius: 999px; text-decoration: none; box-shadow: 0 8px 20px rgba(212,166,59,0.4);">
+                📩 問い合わせフォームからご要望を送信する（無料）
+              </a>
+              <a href="tel:07040939561" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-weight: 800; font-size: 16px; border-radius: 999px; text-decoration: none;">
+                  ✉️ ダイレクトに電話番号に連絡をする（※検討を急ぐ方）
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- コンセプト・トーン＆マナーの強調（民主化のメッセージ） -->
+        <div style="background: linear-gradient(135deg, #fffcf5, #fff8e6); border: 2px solid #d4a63b; border-radius: 16px; padding: 26px 30px; margin-bottom: 32px; box-shadow: 0 6px 20px rgba(212,166,59,0.12);">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <span style="font-size: 28px;">💡</span>
+            <h3 style="margin: 0; font-size: 20px; color: #b8860b; font-weight: 900;">プログラミングも難しいプロンプトも一切不要！「最新テクノロジーによる節税の民主化」</h3>
+          </div>
+          <p style="font-size: 15px; color: #444; line-height: 1.9; margin-bottom: 0; text-align: justify;">
+            「AI」と聞くと「難しそう」「自分で適切な指示出し（プロンプト）ができるか不安」と感じる方もご安心ください。あなたがプログラミングや複雑なAI操作を覚える必要はありません。私たちが独自に構築・調整した専属AIエージェントが迅速に、あなたの希望に沿ってシミレーション行い、私が最後まで適切にサポートします。<br>
+            これまでの士業のやり方では、一般のサラリーマンが気軽に節税や社会保障費削減に取り組むにはハードルが高すぎました。それを、私が<strong>最新のAIテクノロジー×特定行政書士の個別サポート</strong>によって「誰でも簡単に実行できる環境」へ民主化しました。
+          </p>
+        </div>
+
+        <!-- ② なぜ「普通の士業」ではダメで、「AIエージェント」ならできるのか？（差別化の提示） -->
+        <div class="card panel" style="margin-bottom: 32px; border-left: 6px solid #d4a63b;">
+          <div class="section-kicker">Section 01</div>
+          <h3 style="font-size: 24px; color: #536e1f; margin-bottom: 16px; font-weight: 900;">
+            ⚡ なぜ「普通の士業」ではダメで、「AIエージェント」が使える士業ならできるのか？
+          </h3>
+          <p style="font-size: 15px; color: #555; font-weight: 700; margin-bottom: 24px;">
+            圧倒的なハードルの低さとスピードで、従来の士業の限界を打ち破ります。
+          </p>
+
+          <!-- 比較図（生成画像1） -->
+          <div style="margin-bottom: 28px; text-align: center;">
+            <img src="ai_vs_traditional.jpg" alt="「従来の士業相談」vs「生成AIエージェント活用」比較図" style="max-width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);" />
+            <p style="font-size: 13px; color: #888; margin-top: 10px; margin-bottom: 0;">▲ 比較図：「従来の士業相談」vs「生成AIエージェント活用」の圧倒的違い</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+            <!-- 従来の士業の限界 -->
+            <div class="card" style="border-top: 5px solid #c44b4b; background: #fffcfc; overflow: hidden;">
+              <div style="padding: 24px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                  <div style="width: 44px; height: 44px; background: #c44b4b; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff;">🏛️</div>
+                  <div>
+                    <h4 style="margin: 0; font-size: 19px; color: #c44b4b; font-weight: 800;">従来の士業の限界</h4>
+                    <span style="font-size: 12px; color: #888;">Traditional Expert Barrier</span>
+                  </div>
+                </div>
+                <ul style="font-size: 15px; color: #444; line-height: 2.0; padding-left: 1.2em; margin: 0;">
+                  <li style="margin-bottom: 10px;"><strong>相談料・顧問料が高額：</strong> サラリーマンの副業・マイクロスモールビジネスレベルでは顧問料（月数万円以上）で赤字になってしまう。</li>
+                  <li style="margin-bottom: 10px;"><strong>制度が難解で挫折：</strong> 渡された膨大な専門資料や難しい税法用語の解説を理解するだけで一苦労。</li>
+                  <li><strong>時間と手間がかかる：</strong> 個別のシミュレーション作成や各種手続きの準備に数日〜数週間の待ち時間が発生。</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- AIエージェントの強み -->
+            <div class="card" style="border-top: 5px solid #536e1f; background: #f9fbf4; overflow: hidden; box-shadow: 0 8px 24px rgba(108,141,43,0.15);">
+              <div style="padding: 24px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                  <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #6c8d2b, #536e1f); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff;">🤖</div>
+                  <div>
+                    <h4 style="margin: 0; font-size: 19px; color: #536e1f; font-weight: 800;">AIエージェント活用の強み</h4>
+                    <span style="font-size: 12px; color: #888;">AI Agent USP Solution</span>
+                  </div>
+                </div>
+                <ul style="font-size: 15px; color: #333; line-height: 2.0; padding-left: 1.2em; margin: 0;">
+                  <li style="margin-bottom: 10px;"><strong style="color: #536e1f;">圧倒的なハードルの低さ：</strong> AIに簡単な質問をするだけ。知識ゼロでもあなたの状況に合った最適な節税案を提示します。</li>
+                  <li style="margin-bottom: 10px;"><strong style="color: #536e1f;">いつでも困った瞬間に即時サポート：</strong> 迷った時や疑問が出た時、AIに聞けばその場ですぐに分かりやすく回答します。</li>
+                  <li><strong style="color: #536e1f;">超高速＆低コスト処理：</strong> AIが面倒な計算や書類の整理を徹底的にサポートするため、コストを縮減して誰でも即実行可能です。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ③ サラリーマンが直面する「手取りの壁」とAIによる解決策 -->
+        <div style="margin-bottom: 32px; background: linear-gradient(135deg, #f9fbf4 0%, #fffef8 50%, #fff8e6 100%); border: 2px solid #6c8d2b; border-radius: 18px; padding: 32px; box-shadow: 0 8px 24px rgba(108,141,43,0.12);">
+          <div class="section-kicker" style="margin-bottom: 12px;">Section 02</div>
+          <h3 style="font-size: 24px; color: #536e1f; margin-bottom: 12px; font-weight: 900;">
+            📈 サラリーマンが直面する「手取りの壁」とAIによる解決策
+          </h3>
+          <p style="font-size: 16px; color: #444; font-weight: 700; line-height: 1.8; margin-bottom: 24px;">
+            給与が上がっても税金と上がり続ける社会保険料で相殺される現代。正当な制度活用で手取りを最大化します。
+          </p>
+
+          <!-- シミュレーションビジュアル（生成画像3） -->
+          <div style="margin-bottom: 28px; text-align: center;">
+            <img src="ai_takehome_sim.jpg" alt="「手取り増加」シミュレーション結果のビジュアル" style="max-width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);" />
+            <p style="font-size: 13px; color: #888; margin-top: 10px; margin-bottom: 0;">▲ 年収ごとの「社会保険料・税金の削減額（＝手取りアップ額）」シミュレーションのイメージ</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px;">
+            <div style="background: #fff; border-radius: 14px; padding: 22px; border: 2px solid #ecdcb2;">
+              <h4 style="color: #c44b4b; font-size: 18px; margin: 0 0 10px; font-weight: 800;">🛑 現状の課題：「手取りが壊滅的に増えない…」</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;">
+                昇給や残業で額面給与が増えても、累進課税の所得税・住民税・社会保険料（収入の最大約50%前後）によって自由なるお金の大半が消えてしまい、生活の豊かさを実感できない構造になっています。
+              </p>
+            </div>
+            <div style="background: #fff; border-radius: 14px; padding: 22px; border: 2px solid #6c8d2b;">
+              <h4 style="color: #536e1f; font-size: 18px; margin: 0 0 10px; font-weight: 800;">✨ 解決策：「会社員 ×（個人事業主・マイクロ法人）」</h4>
+              <p style="font-size: 14px; color: #444; line-height: 1.8; margin: 0;">
+                会社員の安定収入を維持しながら、個人事業主やマイクロ法人を組み合わせることで、正当かつ合法的に社会保障費と税金を最適化し、手取り額を劇的に向上させます。
+              </p>
+            </div>
+          </div>
+
+          <div style="background: #fff; border-radius: 14px; padding: 24px; border: 2px solid #d4a63b; box-shadow: 0 6px 18px rgba(212,166,59,0.15);">
+            <h4 style="color: #b8860b; font-size: 18px; margin: 0 0 16px; font-weight: 900; text-align: center;">
+              🤖 独自AIエージェントが果たす2つの決定的な役割
+            </h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+              <div style="background: #fffcf5; padding: 18px; border-radius: 12px; border: 1px solid #ecdcb2;">
+                <p style="font-size: 15px; font-weight: 800; color: #b8860b; margin-bottom: 8px;">1. 手取り増加額の自動シミュレーション</p>
+                <p style="font-size: 14px; color: #444; margin: 0; line-height: 1.8;">
+                  「自分なら年間いくら手取りが増えるのか？」を、年収や副業内容を入力するだけでAIが一瞬で高精度シミュレーション。
+                </p>
+              </div>
+              <div style="background: #f9fbf4; padding: 18px; border-radius: 12px; border: 1px solid rgba(108,141,43,0.2);">
+                <p style="font-size: 15px; font-weight: 800; color: #536e1f; margin-bottom: 8px;">2. ステップバイステップ・ナビゲーション</p>
+                <p style="font-size: 14px; color: #444; margin: 0; line-height: 1.8;">
+                  「何をどの順番でやればいい？」を、私がAIと一緒に、今日やること・明日やることを1つずつ分かりやすく順番に、あなたのWebチャットにナビゲーション。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ④ あなたが提供する「AI×個別サポート」の内容 ＆ 画面イメージ -->
+        <div style="margin-bottom: 32px;">
+        <div class="section-kicker" style="margin-bottom: 12px;">Section 03</div>
+        <h3 style="font-size: 24px; color: #536e1f; margin-bottom: 20px; font-weight: 900;">
+            🛡️ あなたが提供する「AI×人間（プロ）」のハイブリッドサポート
+        </h3>
+
+        <!-- 1枚の画像を中央に綺麗に表示させる設定に変更 -->
+         <div style="width: 100%; margin-bottom: 28px; text-align: center;">
+         <!-- ハイブリッドサポート図（生成画像4） -->
+         <img src="ai_human_hybrid.jpg" alt="「AI×人間のハイブリッドサポート」仕組み図" style="width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);" />
+         <p style="font-size: 13px; color: #888; margin-top: 10px; margin-bottom: 0;">▲ 「AIエージェントによる超高速処理」×「プロ（あなた）の目による最終チェック」の仕組み図</p>
+          </div>
+        
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div class="card" style="border-top: 4px solid #6c8d2b; padding: 24px;">
+              <div style="font-size: 32px; margin-bottom: 10px;">📊</div>
+              <h4 style="font-size: 18px; color: #536e1f; margin: 0 0 10px; font-weight: 800;">1. 独自AIエージェントによる自動シミュレーション・ナビ</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;">
+                あなたの年収・家族構成・副業の状況を入力するだけで、最適なマイクロ法人・個人事業主のスキームをAIが自動提示。
+              </p>
+            </div>
+            <div class="card" style="border-top: 4px solid #d4a63b; padding: 24px;">
+              <div style="font-size: 32px; margin-bottom: 10px;">🤝</div>
+              <h4 style="font-size: 18px; color: #b8860b; margin: 0 0 10px; font-weight: 800;">2. AIエージェントの操作・活用伴走サポート</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;">
+                「AIの操作や相談自体に不安がある」という方でも安心。誰でもスムーズに扱えるように操作と相談内容をAI本体のメモリに残らないようプロテクトした上で、丁寧に細部までサポート。
+              </p>
+            </div>
+            <div class="card" style="border-top: 4px solid #536e1f; padding: 24px;">
+              <div style="font-size: 32px; margin-bottom: 10px;">👨‍⚖️</div>
+              <h4 style="font-size: 18px; color: #536e1f; margin: 0 0 10px; font-weight: 800;">3. 人間（プロ）による最終チェック＆個別コンサルにより適切にハルシネーションを排除</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;">
+                「AIに任せっぱなし」ではありません。AIによる超高速処理と、実績ある専門家（あなた）の目による人間チェックで、安心・安全を最後の最後まで適切にサポート。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑤ お試し版での実践ステップ（どれだけ簡単か） -->
+        <div class="card panel" style="margin-bottom: 32px;">
+          <div class="section-kicker">Steps</div>
+          <h3 style="font-size: 24px; color: #536e1f; margin-bottom: 20px; font-weight: 900;">
+            🚀 実践ステップ（わずか3ステップの簡単実行）
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; align-items: stretch;">
+            <div style="flex: 1 1 260px; background: linear-gradient(135deg, #f9fbf4, #fff); border: 2px solid #6c8d2b; border-radius: 16px; padding: 24px; text-align: center;">
+              <div style="width: 44px; height: 44px; background: #6c8d2b; color: #fff; font-weight: 900; font-size: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;">1</div>
+              <h4 style="font-size: 18px; color: #536e1f; margin-bottom: 10px; font-weight: 800;">Step 1: 質問に答えるだけ</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;">
+                Webチャットで、AIエージェントからの簡単な質問（現在のおおよその年収や副業目標など）に答えるだけ。
+              </p>
+            </div>
+            <div style="flex: 1 1 260px; background: linear-gradient(135deg, #fffcf5, #fff); border: 2px solid #d4a63b; border-radius: 16px; padding: 24px; text-align: center;">
+              <div style="width: 44px; height: 44px; background: #d4a63b; color: #fff; font-weight: 900; font-size: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;">2</div>
+              <h4 style="font-size: 18px; color: #b8860b; margin-bottom: 10px; font-weight: 800;">Step 2: ロードマップ自動生成</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;">
+                あなたの状況に完全に最適化された「手取り最大化ロードマップ」とシミュレーション結果が即座に生成されます。
+              </p>
+            </div>
+            <div style="flex: 1 1 260px; background: linear-gradient(135deg, #f9fbf4, #fff); border: 2px solid #536e1f; border-radius: 16px; padding: 24px; text-align: center;">
+              <div style="width: 44px; height: 44px; background: #536e1f; color: #fff; font-weight: 900; font-size: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;">3</div>
+              <h4 style="font-size: 18px; color: #536e1f; margin-bottom: 10px; font-weight: 800;">Step 3: 指示通りに進めるだけ</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;">
+                その上で、私のサポートを参考に従って適切に進めるだけで、あなたの個人事業主の開始やマイクロ法人の設立がノーミスで完了します！
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🧮 赤字発生時の3年間 損益通算・節税シミュレーター -->
+        <div id="simulator" style="margin-bottom: 32px;">
+          <div class="section-kicker" style="margin-bottom: 12px;">3-Year Tax & Loss Carryover Simulator</div>
+          <h3 style="font-size: 24px; color: #536e1f; margin-bottom: 8px; font-weight: 900;">
+            🧮 赤字発生時の3年間 損益通算・節税シミュレーション（無料試算）
+          </h3>
+          <p style="font-size: 15px; color: #555; font-weight: 700; margin-bottom: 24px; line-height: 1.8;">
+            本業年収・開業費・1〜3年目の副業売上と経費のスライダーを動かすだけで、<strong>開業費全額計上による赤字の損益通算と、3年間の赤字繰越控除による税額減額（節税インパクト）</strong>をリアルタイム自動試算します。<br>
+            ※概算値です。詳細な個別設計は問い合わせフォームよりご相談ください。
+          </p>
+
+          <div class="card" style="padding: 30px; background: linear-gradient(180deg, #f9fbf4, #fff); border: 2px solid #6c8d2b;">
+
+            <!-- 入力フォームエリア -->
+            <div style="margin-bottom: 28px;">
+
+              <!-- 基本条件（本業年収・開業費・扶養） -->
+              <div style="background: #fff; border: 2px solid #e2ebd0; border-radius: 14px; padding: 20px; margin-bottom: 24px;">
+                <p style="font-size: 16px; font-weight: 900; color: #536e1f; margin-bottom: 16px;">
+                  ⚙️ 基本設定（本業年収・開業費・扶養）
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                  
+                  <!-- 本業年収 -->
+                  <div>
+                    <label for="sim-salary" style="display: block; font-size: 14px; font-weight: 800; color: #536e1f; margin-bottom: 8px;">
+                      💼 本業の年間額面給与（千円）
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="range" id="sim-salary" min="3000" max="15000" step="500" value="6000"
+                        style="flex: 1; accent-color: #6c8d2b;"
+                        oninput="document.getElementById('sim-salary-val').textContent = Number(this.value).toLocaleString(); runSim();">
+                      <span style="min-width: 90px; text-align: right; font-weight: 900; font-size: 16px; color: #536e1f;">
+                        <span id="sim-salary-val">6,000</span> 千円
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- 開業費1年目全計上額 -->
+                  <div>
+                    <label for="sim-kaigyo" style="display: block; font-size: 14px; font-weight: 800; color: #b8860b; margin-bottom: 8px;">
+                      🏢 開業費 1年目全計上額（千円）
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="range" id="sim-kaigyo" min="0" max="6000" step="100" value="3000"
+                        style="flex: 1; accent-color: #d4a63b;"
+                        oninput="document.getElementById('sim-kaigyo-val').textContent = Number(this.value).toLocaleString(); runSim();">
+                      <span style="min-width: 90px; text-align: right; font-weight: 900; font-size: 16px; color: #b8860b;">
+                        <span id="sim-kaigyo-val">3,000</span> 千円
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- 扶養 -->
+                  <div style="grid-column: 1 / -1;">
+                    <label style="display: block; font-size: 14px; font-weight: 800; color: #536e1f; margin-bottom: 8px;">
+                      👨‍👩‍👧 扶養家族の状況
+                    </label>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                      <label style="display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; cursor: pointer; padding: 8px 14px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 999px;">
+                        <input type="radio" name="sim-dep" value="0" checked onchange="runSim()"> なし（独身）
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; cursor: pointer; padding: 8px 14px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 999px;">
+                        <input type="radio" name="sim-dep" value="1" onchange="runSim()"> 配偶者あり
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; cursor: pointer; padding: 8px 14px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 999px;">
+                        <input type="radio" name="sim-dep" value="2" onchange="runSim()"> 配偶者＋子あり
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- 3年間の副業売上・必要経費スライダー（1年目・2年目・3年目） -->
+              <p style="font-size: 16px; font-weight: 900; color: #536e1f; margin-bottom: 14px;">
+                📅 3年間の副業 事業売上・必要経費の設定（1年目 ➔ 2年目 ➔ 3年目）
+              </p>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px;">
+
+                <!-- 1年目 -->
+                <div style="background: #fff; border: 2px solid #6c8d2b; border-radius: 14px; padding: 18px;">
+                  <div style="display: inline-block; background: #6c8d2b; color: #fff; font-weight: 900; font-size: 13px; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">
+                    1年目の副業設定
+                  </div>
+                  
+                  <div style="margin-bottom: 14px;">
+                    <label for="sim-rev-1" style="display: block; font-size: 13.5px; font-weight: 800; color: #333; margin-bottom: 6px;">
+                      1年目の副業 事業売上（千円）
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="range" id="sim-rev-1" min="0" max="10000" step="100" value="3000"
+                        style="flex: 1; accent-color: #6c8d2b;"
+                        oninput="document.getElementById('sim-rev-1-val').textContent = Number(this.value).toLocaleString(); runSim();">
+                      <span style="min-width: 80px; text-align: right; font-weight: 900; font-size: 15px; color: #536e1f;">
+                        <span id="sim-rev-1-val">3,000</span> 千円
+                      </span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="sim-exp-1" style="display: block; font-size: 13.5px; font-weight: 800; color: #333; margin-bottom: 6px;">
+                      1年目の副業 必要経費（千円）
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="range" id="sim-exp-1" min="0" max="6000" step="50" value="850"
+                        style="flex: 1; accent-color: #6c8d2b;"
+                        oninput="document.getElementById('sim-exp-1-val').textContent = Number(this.value).toLocaleString(); runSim();">
+                      <span style="min-width: 80px; text-align: right; font-weight: 900; font-size: 15px; color: #536e1f;">
+                        <span id="sim-exp-1-val">850</span> 千円
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2年目 -->
+                <div style="background: #fff; border: 2px solid #2b7a8d; border-radius: 14px; padding: 18px;">
+                  <div style="display: inline-block; background: #2b7a8d; color: #fff; font-weight: 900; font-size: 13px; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">
+                    2年目の副業設定
+                  </div>
+                  
+                  <div style="margin-bottom: 14px;">
+                    <label for="sim-rev-2" style="display: block; font-size: 13.5px; font-weight: 800; color: #333; margin-bottom: 6px;">
+                      2年目の副業 事業売上（千円）
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="range" id="sim-rev-2" min="0" max="10000" step="100" value="3000"
+                        style="flex: 1; accent-color: #2b7a8d;"
+                        oninput="document.getElementById('sim-rev-2-val').textContent = Number(this.value).toLocaleString(); runSim();">
+                      <span style="min-width: 80px; text-align: right; font-weight: 900; font-size: 15px; color: #1f6270;">
+                        <span id="sim-rev-2-val">3,000</span> 千円
+                      </span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="sim-exp-2" style="display: block; font-size: 13.5px; font-weight: 800; color: #333; margin-bottom: 6px;">
+                      2年目の副業 必要経費（千円）
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="range" id="sim-exp-2" min="0" max="6000" step="50" value="850"
+                        style="flex: 1; accent-color: #2b7a8d;"
+                        oninput="document.getElementById('sim-exp-2-val').textContent = Number(this.value).toLocaleString(); runSim();">
+                      <span style="min-width: 80px; text-align: right; font-weight: 900; font-size: 15px; color: #1f6270;">
+                        <span id="sim-exp-2-val">850</span> 千円
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3年目 -->
+                <div style="background: #fff; border: 2px solid #d4a63b; border-radius: 14px; padding: 18px;">
+                  <div style="display: inline-block; background: #d4a63b; color: #fff; font-weight: 900; font-size: 13px; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">
+                    3年目の副業設定
+                  </div>
+                  
+                  <div style="margin-bottom: 14px;">
+                    <label for="sim-rev-3" style="display: block; font-size: 13.5px; font-weight: 800; color: #333; margin-bottom: 6px;">
+                      3年目の副業 事業売上（千円）
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="range" id="sim-rev-3" min="0" max="10000" step="100" value="3000"
+                        style="flex: 1; accent-color: #d4a63b;"
+                        oninput="document.getElementById('sim-rev-3-val').textContent = Number(this.value).toLocaleString(); runSim();">
+                      <span style="min-width: 80px; text-align: right; font-weight: 900; font-size: 15px; color: #b8860b;">
+                        <span id="sim-rev-3-val">3,000</span> 千円
+                      </span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="sim-exp-3" style="display: block; font-size: 13.5px; font-weight: 800; color: #333; margin-bottom: 6px;">
+                      3年目の副業 必要経費（千円）
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="range" id="sim-exp-3" min="0" max="6000" step="50" value="850"
+                        style="flex: 1; accent-color: #d4a63b;"
+                        oninput="document.getElementById('sim-exp-3-val').textContent = Number(this.value).toLocaleString(); runSim();">
+                      <span style="min-width: 80px; text-align: right; font-weight: 900; font-size: 15px; color: #b8860b;">
+                        <span id="sim-exp-3-val">850</span> 千円
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 📊 赤字発生時の3年間 損益通算・節税シミュレーション結果テーブル -->
+            <div style="margin-bottom: 24px; background: #fff; border: 2px solid #6c8d2b; border-radius: 16px; padding: 22px; box-shadow: 0 6px 18px rgba(0,0,0,0.04);">
+              <p style="font-size: 17px; font-weight: 900; color: #536e1f; margin-bottom: 14px; text-align: center;">
+                📊 赤字発生時の3年間 損益通算・節税シミュレーション表（千円）
+              </p>
+              
+              <div style="overflow-x: auto;">
+                <table class="table" style="min-width: 650px; font-size: 14px; text-align: right; margin-bottom: 0;">
+                  <thead>
+                    <tr style="background: #f4f8ec;">
+                      <th style="text-align: left; width: 220px;">項目</th>
+                      <th style="text-align: right; color: #6c8d2b;">1年目</th>
+                      <th style="text-align: right; color: #2b7a8d;">2年目</th>
+                      <th style="text-align: right; color: #d4a63b;">3年目</th>
+                      <th style="text-align: right; color: #536e1f; font-weight: 900; background: #eaf3d9;">3年間累計</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th style="text-align: left;">① 副業 事業売上</th>
+                      <td id="tbl-rev-1">-</td>
+                      <td id="tbl-rev-2">-</td>
+                      <td id="tbl-rev-3">-</td>
+                      <td id="tbl-rev-tot" style="font-weight: 800; background: #fbfdf9;">-</td>
+                    </tr>
+                    <tr>
+                      <th style="text-align: left;">② 副業 必要経費</th>
+                      <td id="tbl-exp-1">-</td>
+                      <td id="tbl-exp-2">-</td>
+                      <td id="tbl-exp-3">-</td>
+                      <td id="tbl-exp-tot" style="font-weight: 800; background: #fbfdf9;">-</td>
+                    </tr>
+                    <tr style="background: #fffcf5;">
+                      <th style="text-align: left; color: #b8860b;">③ 開業費全計上 / 繰越赤字控除</th>
+                      <td id="tbl-kaigyo-1" style="color: #b8860b; font-weight: 700;">-</td>
+                      <td id="tbl-kaigyo-2" style="color: #b8860b; font-weight: 700;">-</td>
+                      <td id="tbl-kaigyo-3" style="color: #b8860b; font-weight: 700;">-</td>
+                      <td id="tbl-kaigyo-tot" style="color: #b8860b; font-weight: 900; background: #fff8e6;">-</td>
+                    </tr>
+                    <tr>
+                      <th style="text-align: left;">④ 副業損益（通算前）</th>
+                      <td id="tbl-net-before-1">-</td>
+                      <td id="tbl-net-before-2">-</td>
+                      <td id="tbl-net-before-3">-</td>
+                      <td id="tbl-net-before-tot" style="font-weight: 800; background: #fbfdf9;">-</td>
+                    </tr>
+                    <tr style="background: #fdf5f5;">
+                      <th style="text-align: left; color: #c44b4b;">⑤ 副業損益（通算後・赤字繰越反映）</th>
+                      <td id="tbl-loss-pass-1" style="font-weight: 800;">-</td>
+                      <td id="tbl-loss-pass-2" style="font-weight: 800;">-</td>
+                      <td id="tbl-loss-pass-3" style="font-weight: 800;">-</td>
+                      <td id="tbl-loss-pass-tot" style="font-weight: 900; background: #faeaea;">-</td>
+                    </tr>
+                    <tr style="background: #f2f8ea; border-top: 2px solid #6c8d2b;">
+                      <th style="text-align: left; color: #2d8a2d; font-size: 15px;">💰 損益通算による税額減額（節税額）</th>
+                      <td id="tbl-tax-save-1" style="color: #2d8a2d; font-weight: 900; font-size: 15px;">-</td>
+                      <td id="tbl-tax-save-2" style="color: #2d8a2d; font-weight: 900; font-size: 15px;">-</td>
+                      <td id="tbl-tax-save-3" style="color: #2d8a2d; font-weight: 900; font-size: 15px;">-</td>
+                      <td id="tbl-tax-save-tot" style="color: #2d8a2d; font-weight: 900; font-size: 17px; background: #e0f0cb;">-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="font-size: 12px; color: #777; margin: 10px 0 0; line-height: 1.6;">
+                ※1年目の必要経費に開業費全額を加算して赤字（純損失）が発生した場合、本業の給与所得と<strong>損益通算</strong>して所得税・住民税を減額（還付）します。1年目で控除しきれなかった赤字は青色申告の繰越控除として2年目、3年目の事業所得から順次控除されます。
+              </p>
+            </div>
+
+            <!-- 結果エリア（3パターンの比較 + 結論カード） -->
+            <div id="sim-result" style="background: linear-gradient(135deg, #fff, #f9fbf4); border: 2px solid #6c8d2b; border-radius: 16px; padding: 24px;">
+
+              <p style="font-size: 14px; font-weight: 800; color: #536e1f; margin-bottom: 16px; text-align: center;">
+                📊 3年間の累計手取り比較（3年間合計）
+              </p>
+
+              <!-- 棒グラフ + 数値 -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 20px;">
+
+                <!-- パターンA -->
+                <div style="background: #fff; border-radius: 14px; padding: 18px; text-align: center; border: 2px solid #d0d0d0; position: relative;">
+                  <div style="font-size: 12px; font-weight: 800; color: #888; margin-bottom: 6px;">パターンA</div>
+                  <div style="font-size: 13px; font-weight: 700; color: #555; margin-bottom: 10px;">何もしない（現状維持）</div>
+                  <div style="background: #e0e0e0; border-radius: 8px; height: 10px; margin-bottom: 10px; overflow: hidden;">
+                    <div id="sim-bar-a" style="height: 100%; background: #aaa; border-radius: 8px; transition: width 0.4s;"></div>
+                  </div>
+                  <div id="sim-val-a" style="font-size: 22px; font-weight: 900; color: #444;"></div>
+                  <div style="font-size: 12px; color: #888; margin-top: 2px;">3年間手取り概算</div>
+                </div>
+
+                <!-- パターンB -->
+                <div style="background: #fff; border-radius: 14px; padding: 18px; text-align: center; border: 2px solid #6c8d2b; position: relative;">
+                  <div style="font-size: 12px; font-weight: 800; color: #6c8d2b; margin-bottom: 6px;">パターンB</div>
+                  <div style="font-size: 13px; font-weight: 700; color: #555; margin-bottom: 10px;">個人事業主（開業費＆損益通算）</div>
+                  <div style="background: #e8f0d9; border-radius: 8px; height: 10px; margin-bottom: 10px; overflow: hidden;">
+                    <div id="sim-bar-b" style="height: 100%; background: #6c8d2b; border-radius: 8px; transition: width 0.4s;"></div>
+                  </div>
+                  <div id="sim-val-b" style="font-size: 22px; font-weight: 900; color: #536e1f;"></div>
+                  <div style="font-size: 12px; color: #888; margin-top: 2px;">3年間手取り概算</div>
+                  <div id="sim-diff-b" style="font-size: 13px; font-weight: 900; color: #2d8a2d; margin-top: 6px;"></div>
+                </div>
+
+                <!-- パターンC -->
+                <div style="background: #fff; border-radius: 14px; padding: 18px; text-align: center; border: 2px solid #d4a63b; position: relative;">
+                  <div style="font-size: 12px; font-weight: 800; color: #b8860b; margin-bottom: 6px;">パターンC ⭐ 起業おすすめ</div>
+                  <div style="font-size: 13px; font-weight: 700; color: #555; margin-bottom: 10px;">会社員×マイクロ法人（社保最適化）</div>
+                  <div style="background: #fef3d9; border-radius: 8px; height: 10px; margin-bottom: 10px; overflow: hidden;">
+                    <div id="sim-bar-c" style="height: 100%; background: #d4a63b; border-radius: 8px; transition: width 0.4s;"></div>
+                  </div>
+                  <div id="sim-val-c" style="font-size: 22px; font-weight: 900; color: #b8860b;"></div>
+                  <div style="font-size: 12px; color: #888; margin-top: 2px;">3年間手取り概算</div>
+                  <div id="sim-diff-c" style="font-size: 13px; font-weight: 900; color: #d4a63b; margin-top: 6px;"></div>
+                </div>
+              </div>
+
+              <!-- 結論メッセージ（超強力アピールデザイン） -->
+              <div id="sim-conclusion" style="background: linear-gradient(135deg, #0f2b18 0%, #1d4d2b 50%, #133a1e 100%); border: 3px solid #d4a63b; border-radius: 16px; padding: 26px 24px; color: #fff; text-align: center; margin-bottom: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(212,166,59,0.3), transparent 70%); pointer-events: none;"></div>
+                <div id="sim-conclusion-badge" style="display: inline-block; padding: 6px 18px; background: linear-gradient(90deg, #d4a63b, #f3e092, #d4a63b); color: #111; font-weight: 900; font-size: 13px; border-radius: 999px; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(212,166,59,0.4); text-transform: uppercase; letter-spacing: 1px;">
+                  🔥 圧倒的な手取り差額を発見！
+                </div>
+                <div id="sim-conclusion-text" style="line-height: 1.8;"></div>
+              </div>
+
+              <!-- 注記 -->
+              <p style="font-size: 12px; color: #888; text-align: center; margin-bottom: 20px; line-height: 1.6;">
+                ※本シミュレーションの手取り差額は概算値（日本の税制・社会保険料に基づく近似計算）です。詳細な節税額は各自の個別のご状況によりかなり前後することがあります。<br>
+                このため、ご自分の正確なシミュレーションをご希望される方は、必ず問い合わせフォームの方にご連絡をお願いします。
+              </p>
+
+              <!-- CTA -->
+              <div style="text-align: center;">
+                <a href="https://www.foodloss-zero-systems.jp/form.html" target="_blank" rel="noopener"
+                  style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 540px; padding: 18px 32px; background: linear-gradient(180deg, #e6b840 0%, #b8860b 100%); color: #fff; font-weight: 900; font-size: 17px; border-radius: 999px; text-decoration: none; box-shadow: 0 10px 25px rgba(212,166,59,0.45); border: 2px solid #fff3d1; transition: transform 0.2s;">
+                  🚀 このシミュレーションの試算結果をもとに、私と手取り額の最大化のための最適なロードマップを作成する!
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+        (function() {
+          function fmtYen(senYen) {
+            return Math.round(senYen).toLocaleString() + ' 千円';
+          }
+          function fmtMan(senYen) {
+            return (Math.round(senYen / 10) / 10).toLocaleString() + ' 万円';
+          }
+
+          // 給与所得控除（円単位計算）
+          function kyuyoKojo(s) {
+            if (s <= 1625000) return 550000;
+            if (s <= 1800000) return s * 0.4 - 100000;
+            if (s <= 3600000) return s * 0.3 + 80000;
+            if (s <= 6600000) return s * 0.2 + 440000;
+            if (s <= 8500000) return s * 0.1 + 1100000;
+            return 1950000;
+          }
+
+          // 社会保険料（円単位：上限120万円）
+          function shahoRyo(s) {
+            return Math.min(s * 0.15, 1200000);
+          }
+
+          // 所得税+住民税（円単位計算）
+          function calcTax(taxableIncome) {
+            if (taxableIncome <= 0) return 0;
+            var income = taxableIncome;
+            var sozetsu = 0;
+            if (income <= 1950000) sozetsu = income * 0.05;
+            else if (income <= 3300000) sozetsu = income * 0.10 - 97500;
+            else if (income <= 6950000) sozetsu = income * 0.20 - 427500;
+            else if (income <= 9000000) sozetsu = income * 0.23 - 636000;
+            else if (income <= 18000000) sozetsu = income * 0.33 - 1536000;
+            else sozetsu = income * 0.40 - 2796000;
+            var juminzei = income * 0.10;
+            return sozetsu + juminzei;
+          }
+
+          window.runSim = function() {
+            // 入力値取得（千円単位 ➔ 円単位）
+            var salary = parseFloat(document.getElementById('sim-salary').value) * 1000;
+            var kaigyoExp = parseFloat(document.getElementById('sim-kaigyo').value) * 1000;
+            
+            var rev = [
+              parseFloat(document.getElementById('sim-rev-1').value) * 1000,
+              parseFloat(document.getElementById('sim-rev-2').value) * 1000,
+              parseFloat(document.getElementById('sim-rev-3').value) * 1000
+            ];
+            var exp = [
+              parseFloat(document.getElementById('sim-exp-1').value) * 1000,
+              parseFloat(document.getElementById('sim-exp-2').value) * 1000,
+              parseFloat(document.getElementById('sim-exp-3').value) * 1000
+            ];
+
+            var dep = parseFloat(document.querySelector('input[name="sim-dep"]:checked').value);
+            var depDeduction = dep === 0 ? 0 : dep === 1 ? 760000 : 1140000;
+            var kiso = 480000; // 基礎控除
+
+            // 本業給与所得の計算
+            var shaho = shahoRyo(salary);
+            var kojo = kyuyoKojo(salary);
+            var salaryIncome = Math.max(salary - kojo, 0); // 給与所得金額
+
+            // パターンA（何もしない：給与のみ）の3年間税額と手取り
+            var baseTaxable = Math.max(salaryIncome - shaho - kiso - depDeduction, 0);
+            var baseTaxYear = calcTax(baseTaxable);
+            var netAYear = salary - shaho - baseTaxYear;
+            var netA3Years = netAYear * 3;
+
+            // パターンB（個人事業主：開業費全計上 ＆ 損益通算・3年赤字繰越）
+            // 1年目：副業必要経費に開業費を加算
+            var netBefore = [
+              rev[0] - exp[0],
+              rev[1] - exp[1],
+              rev[2] - exp[2]
+            ];
+
+            // 1年目：開業費計上後の副業損益
+            var sideProfit1 = netBefore[0] - kaigyoExp;
+            var lossCarry = 0; // 繰越赤字残高
+            var lossPass = [0, 0, 0];
+            var kaigyoDeduction = [kaigyoExp, 0, 0];
+
+            if (sideProfit1 < 0) {
+              // 1年目赤字：本業給与所得と損益通算
+              lossPass[0] = sideProfit1; // 負の値
+              var netLoss = Math.abs(sideProfit1);
+              if (netLoss > salaryIncome) {
+                lossCarry = netLoss - salaryIncome; // 給与所得でも引ききれなかった分を2年目へ
+              } else {
+                lossCarry = 0;
+              }
+            } else {
+              // 青色申告特別控除（最大65万円）
+              var blue1 = Math.min(sideProfit1, 650000);
+              lossPass[0] = sideProfit1 - blue1;
+              lossCarry = 0;
+            }
+
+            // 2年目：繰越赤字の控除
+            var sideProfit2 = netBefore[1];
+            if (lossCarry > 0) {
+              kaigyoDeduction[1] = lossCarry;
+              if (sideProfit2 <= lossCarry) {
+                lossPass[1] = sideProfit2 - lossCarry; // 赤字残高
+                lossCarry = lossCarry - sideProfit2;
+              } else {
+                var remainProfit2 = sideProfit2 - lossCarry;
+                var blue2 = Math.min(remainProfit2, 650000);
+                lossPass[1] = remainProfit2 - blue2;
+                lossCarry = 0;
+              }
+            } else {
+              if (sideProfit2 > 0) {
+                var blue2_nob = Math.min(sideProfit2, 650000);
+                lossPass[1] = sideProfit2 - blue2_nob;
+              } else {
+                lossPass[1] = sideProfit2;
+              }
+            }
+
+            // 3年目：繰越赤字の控除
+            var sideProfit3 = netBefore[2];
+            if (lossCarry > 0) {
+              kaigyoDeduction[2] = lossCarry;
+              if (sideProfit3 <= lossCarry) {
+                lossPass[2] = sideProfit3 - lossCarry;
+                lossCarry = lossCarry - sideProfit3;
+              } else {
+                var remainProfit3 = sideProfit3 - lossCarry;
+                var blue3 = Math.min(remainProfit3, 650000);
+                lossPass[2] = remainProfit3 - blue3;
+                lossCarry = 0;
+              }
+            } else {
+              if (sideProfit3 > 0) {
+                var blue3_nob = Math.min(sideProfit3, 650000);
+                lossPass[2] = sideProfit3 - blue3_nob;
+              } else {
+                lossPass[2] = sideProfit3;
+              }
+            }
+
+            // 各年の税額と節税額（損益通算による減額控除）の計算
+            var taxYearB = [0, 0, 0];
+            var taxSavings = [0, 0, 0];
+            var netBYear = [0, 0, 0];
+
+            for (var y = 0; y < 3; y++) {
+              var totalIncomeY = Math.max(salaryIncome + lossPass[y], 0);
+              var taxableY = Math.max(totalIncomeY - shaho - kiso - depDeduction, 0);
+              taxYearB[y] = calcTax(taxableY);
+              taxSavings[y] = Math.max(baseTaxYear - taxYearB[y], 0);
+              // 手取り = 本業給与 + 副業売上 - 副業経費 - (1年目開業費) - 社会保険料 - 実税額
+              var actualExpY = exp[y] + (y === 0 ? kaigyoExp : 0);
+              netBYear[y] = salary + rev[y] - actualExpY - shaho - taxYearB[y];
+            }
+
+            var netB3Years = netBYear[0] + netBYear[1] + netBYear[2];
+            var totalTaxSavings = taxSavings[0] + taxSavings[1] + taxSavings[2];
+
+            // パターンC（マイクロ法人活用）3年間概算
+            var microSalary = 720000;
+            var microShahoTotal = microSalary * 0.30;
+            var netC3Years = 0;
+            for (var c = 0; c < 3; c++) {
+              var corpIncome = Math.max(rev[c] - exp[c] - microSalary - microShahoTotal, 0);
+              var corpTax = corpIncome * 0.23;
+              var taxableC = Math.max(salaryIncome + microSalary - kyuyoKojo(microSalary) - shaho - kiso - depDeduction, 0);
+              var taxC = calcTax(taxableC);
+              var netCYear = salary + rev[c] - exp[c] - shaho - microShahoTotal - taxC - corpTax - 70000;
+              netC3Years += netCYear;
+            }
+
+            // テーブル反映（千円単位に変換して表示）
+            for (var i = 0; i < 3; i++) {
+              document.getElementById('tbl-rev-' + (i + 1)).textContent = fmtYen(rev[i] / 1000);
+              document.getElementById('tbl-exp-' + (i + 1)).textContent = fmtYen(exp[i] / 1000);
+              document.getElementById('tbl-kaigyo-' + (i + 1)).textContent = kaigyoDeduction[i] > 0 ? '▲ ' + fmtYen(kaigyoDeduction[i] / 1000) : '-';
+              document.getElementById('tbl-net-before-' + (i + 1)).textContent = (netBefore[i] >= 0 ? '+' : '') + fmtYen(netBefore[i] / 1000);
+              document.getElementById('tbl-loss-pass-' + (i + 1)).textContent = (lossPass[i] >= 0 ? '+' : '▲ ') + fmtYen(Math.abs(lossPass[i]) / 1000);
+              document.getElementById('tbl-tax-save-' + (i + 1)).textContent = '+' + fmtYen(taxSavings[i] / 1000);
+            }
+
+            var totalRev = (rev[0] + rev[1] + rev[2]) / 1000;
+            var totalExp = (exp[0] + exp[1] + exp[2]) / 1000;
+            var totalKaigyo = kaigyoExp / 1000;
+            var totalNetBefore = (netBefore[0] + netBefore[1] + netBefore[2]) / 1000;
+            var totalLossPass = (lossPass[0] + lossPass[1] + lossPass[2]) / 1000;
+
+            document.getElementById('tbl-rev-tot').textContent = fmtYen(totalRev);
+            document.getElementById('tbl-exp-tot').textContent = fmtYen(totalExp);
+            document.getElementById('tbl-kaigyo-tot').textContent = '▲ ' + fmtYen(totalKaigyo);
+            document.getElementById('tbl-net-before-tot').textContent = (totalNetBefore >= 0 ? '+' : '') + fmtYen(totalNetBefore);
+            document.getElementById('tbl-loss-pass-tot').textContent = (totalLossPass >= 0 ? '+' : '▲ ') + fmtYen(Math.abs(totalLossPass));
+            document.getElementById('tbl-tax-save-tot').textContent = '+' + fmtYen(totalTaxSavings / 1000);
+
+            // 3年間累計手取りカード反映
+            var netAMan = netA3Years / 10000;
+            var netBMan = netB3Years / 10000;
+            var netCMan = netC3Years / 10000;
+
+            document.getElementById('sim-val-a').textContent = fmtMan(netAMan * 10);
+            document.getElementById('sim-val-b').textContent = fmtMan(netBMan * 10);
+            document.getElementById('sim-val-c').textContent = fmtMan(netCMan * 10);
+
+            var diffB = Math.round(netBMan - netAMan);
+            var diffC = Math.round(netCMan - netAMan);
+            document.getElementById('sim-diff-b').textContent = diffB >= 0 ? '▲ 3年計 +' + diffB.toLocaleString() + '万円' : '▼ 3年計 ' + Math.abs(diffB).toLocaleString() + '万円';
+            document.getElementById('sim-diff-c').textContent = diffC >= 0 ? '▲ 3年計 +' + diffC.toLocaleString() + '万円' : '▼ 3年計 ' + Math.abs(diffC).toLocaleString() + '万円';
+
+            var minNet = Math.min(netAMan, netBMan, netCMan);
+            var maxNet = Math.max(netAMan, netBMan, netCMan);
+            var range = Math.max(maxNet - minNet, 1);
+            function barWidth(v) { return Math.max(10, Math.round(40 + (v - minNet) / range * 50)) + '%'; }
+
+            document.getElementById('sim-bar-a').style.width = barWidth(netAMan);
+            document.getElementById('sim-bar-b').style.width = barWidth(netBMan);
+            document.getElementById('sim-bar-c').style.width = barWidth(netCMan);
+
+            // 結論アピール
+            var bestPatternName = diffC >= diffB ? 'パターンC（会社員 × マイクロ法人）' : 'パターンB（個人事業主・開業費＆損益通算）';
+            var bestDiff = Math.max(diffB, diffC);
+            var monthlyDiff = (bestDiff / 36).toFixed(1);
+            var taxSaveMan = (totalTaxSavings / 10000).toFixed(1);
+            var conclusionEl = document.getElementById('sim-conclusion-text');
+            
+            if (bestDiff > 0 || totalTaxSavings > 0) {
+              conclusionEl.innerHTML = 
+                '<div style="font-size: 16px; color: #d0e8d0; font-weight: 700; margin-bottom: 6px;">あなたに最適な3年間手取り最大化プラン</div>' +
+                '<div style="font-size: 22px; font-weight: 900; color: #ffe259; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-bottom: 12px; letter-spacing: 0.5px;">' +
+                  '🏆 ' + bestPatternName +
+                '</div>' +
+                '<div style="font-size: 15px; color: #fff; margin-bottom: 14px;">' +
+                  '開業費計上・損益通算・赤字繰越により、3年間累計で税額が約 <span style="font-size: 38px; font-weight: 900; color: #ffe259; text-shadow: 0 2px 8px rgba(255,226,89,0.5); padding: 0 4px;">' + taxSaveMan + '</span> 万円 減額（節税・還付）！' +
+                  '<br><span style="font-size: 14px; color: #eaf8e6;">（3年間の手取り純増インパクト：約 <strong>+' + bestDiff.toLocaleString() + '万円</strong>）</span>' +
+                '</div>' +
+                '<div style="display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; background: rgba(255,255,255,0.12); padding: 10px 20px; border-radius: 999px; border: 1px solid rgba(212,166,59,0.5); font-size: 14px; font-weight: 800; color: #fff;">' +
+                  '<span>🗓️ 3年間月平均：<strong style="color:#ffe259; font-size:18px;">約+' + monthlyDiff + '万円</strong>/月の手取りUP</span>' +
+                  '<span>✨ AIエージェントで開業届・損益通算手続きも迷わず実行</span>' +
+                '</div>';
+            } else {
+              conclusionEl.innerHTML = 
+                '<div style="font-size: 16px; color: #fff; font-weight: 800;">' +
+                  '📌 現在の入力条件では大きな手取り差は出にくいですが、<br>開業費の計上額や役員報酬の設定次第でさらに手取りを改善できます。' +
+                '</div>';
+            }
+          };
+
+          // 初期化
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runSim);
+          } else {
+            runSim();
+          }
+        })();
+        </script>
+
+
+
+
+        <!-- ⑥ よくある質問（FAQ） -->
+        <div style="margin-bottom: 32px;">
+          <div class="section-kicker" style="margin-bottom: 12px;">FAQ</div>
+          <h3 style="font-size: 24px; color: #536e1f; margin-bottom: 20px; font-weight: 900;">
+            ❓ よくある質問（FAQ）
+          </h3>
+          <div class="section-stack">
+            <div class="faq-item" style="border: 2px solid #e8dfd0; border-radius: 16px; padding: 22px;">
+              <strong style="font-size: 17px; color: #536e1f; margin-bottom: 10px;">Q. AIなんて使ったことがない私でも大丈夫ですか？</strong>
+              <div style="font-size: 15px; color: #444; line-height: 1.8; font-weight: 700;">
+                ➔ A. はい、全く心配ありません！Web問い合わせで普段どおりにメッセージによる連絡をするだけで、IT知識ゼロ・知識ゼロのサラリーマンの方でも、簡単に節税ができます。
+              </div>
+            </div>
+            <div class="faq-item" style="border: 2px solid #e8dfd0; border-radius: 16px; padding: 22px;">
+              <strong style="font-size: 17px; color: #536e1f; margin-bottom: 10px;">Q. 税理士などの士業に頼むのと何が違いますか？</strong>
+              <div style="font-size: 15px; color: #444; line-height: 1.8; font-weight: 700;">
+                ➔ A. 高額な顧問料や相談料を大幅に抑えられる点に加え、面倒な計算や制度の勉強をすべてAIエージェントに任せられるため、途中で難しくて挫折することなく最後まで実行できる点が決定的に異なります。さらにプロ（特定行政書士）のサポートと最終チェックも付いているため安心です。
+              </div>
+            </div>
+            <div class="faq-item" style="border: 2px solid #e8dfd0; border-radius: 16px; padding: 22px;">
+              <strong style="font-size: 17px; color: #536e1f; margin-bottom: 10px;">Q. 電話での直接相談は可能ですか？</strong>
+              <div style="font-size: 15px; color: #444; line-height: 1.8; font-weight: 700;">
+                ➔ A. 本サービスに関するご相談は、誤認防止および現在の年収・副業希望などの条件を正確に把握して高精度なシミュレーションを行うため、<strong>原則お電話ではなくWeb問い合わせフォーム（メール）にてご要望をお送りいただく形式</strong>とさせていただいております。フォームよりご要望内容をお書き込みの上送信してください。
+              </div>
+            </div>
+            <div class="faq-item" style="border: 2px solid #e8dfd0; border-radius: 16px; padding: 22px;">
+              <strong style="font-size: 17px; color: #536e1f; margin-bottom: 10px;">Q. 会社に副業やマイクロ法人設立がバレる心配はありませんか？</strong>
+              <div style="font-size: 15px; color: #444; line-height: 1.8; font-weight: 700;">
+                ➔ A. 住民税の特別徴収・普通徴収の区分け設定など、会社に知られずに正当に運営するための注意事項や設定手順も、AIエージェント及び専門家が丁寧にナビゲートします。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑦ CTA（問い合わせ・体験誘導） -->
+        <div style="background: linear-gradient(135deg, #536e1f 0%, #3d5216 50%, #2d3d10 100%); border-radius: 20px; padding: 44px 36px; color: #fff; box-shadow: 0 16px 40px rgba(83,110,31,0.35); margin-bottom: 32px; text-align: center; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: -80px; right: -80px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(212,166,59,0.2), transparent); border-radius: 50%;"></div>
+          <div style="position: relative; z-index: 1;">
+            <div style="display: inline-block; background: #d4a63b; color: #fff; font-weight: 900; padding: 6px 18px; border-radius: 999px; font-size: 14px; margin-bottom: 16px; letter-spacing: 0.05em;">
+              SPECIAL CTA
+            </div>
+            <h3 style="font-size: clamp(24px, 3.5vw, 34px); color: #fff; font-weight: 900; margin-bottom: 16px;">
+              あなたの手取りはいくら増える？今すぐWeb問い合わせメールでご相談・ご要望を送信下さい！
+            </h3>
+            <p style="font-size: 17px; color: rgba(255,255,255,0.92); font-weight: 700; line-height: 1.9; max-width: 850px; margin: 0 auto 20px;">
+              ※本ご相談は、誤認識を防ぎ迅速かつ高精度なシミュレーションを行うため、<strong>原則お電話ではなく下記Web問い合わせフォームよりメールにてご依頼・ご要望内容を書き込んでお送りください。</strong>
+            </p>
+            
+            <!-- メールフォーム誘導専用特大バナー -->
+            <div style="background: rgba(255,255,255,0.12); border: 2px solid rgba(212,166,59,0.6); border-radius: 16px; padding: 24px; margin: 24px auto; max-width: 800px;">
+              <p style="font-size: 16px; color: #ffe8a0; font-weight: 800; margin-bottom: 14px; line-height: 1.6;">
+                📝 問い合わせフォームへ現在の年収・副業希望・気になるご要望などを自由にお書き込みください。
+              </p>
+              <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+                <a href="https://www.foodloss-zero-systems.jp/form.html" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 36px; background: linear-gradient(180deg, #d4a63b, #b8860b); color: #fff; font-weight: 900; font-size: 20px; border-radius: 999px; text-decoration: none; box-shadow: 0 10px 25px rgba(212,166,59,0.4);">
+                  📩 問い合わせフォームを開いてご要望を送信する（公式フォーム）
+                </a>
+                <a href="tel:07040939561" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-weight: 800; font-size: 16px; border-radius: 999px; text-decoration: none;">
+                    ✉️ ダイレクトに電話番号に連絡をする（※検討を急ぐ方）
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 関連ページリンク -->
+        <div style="margin-bottom: 28px;">
+          <div class="section-kicker" style="margin-bottom: 12px;">Related Pages</div>
+          <h3 style="font-size: 22px; color: #536e1f; margin-bottom: 16px;">🔗 関連ページ</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+            <a href="#corporate" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">🏛️</span> #法人設立
+            </a>
+            <a href="#agri-inheritance" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">🌾</span> #農業・相続
+            </a>
+            <a href="#services" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">📜</span> 行政書士業務
+            </a>
+            <a href="#access" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: #fff; border: 2px solid rgba(108,141,43,0.2); border-radius: 14px; color: #536e1f; font-weight: 800; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+              <span style="font-size: 20px;">📩</span> お問い合わせ
+            </a>
+          </div>
+        </div>
+
+        <div class="banner" style="text-align: center; font-size: 16px;">
+          🤖 生成AIエージェント×特定行政書士の伴走サポートで、手取り額の最大化を今すぐ実現しましょう。
         </div>
       </section>
 
